@@ -1,3 +1,3 @@
 # ExerciseTools
 
-DEMO : https://shullski.github.io/ExerciseTools/
+DEMO : https://shullski.github.io/ExerciseTools/exerciseTools.html
