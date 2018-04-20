@@ -1,0 +1,182 @@
+/* Responsive Design */
+* {
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #141414; }
+
+.row::after {
+  content: '';
+  clear: both;
+  display: block; }
+
+[class*="col-"] {
+  width: 100%;
+  float: left;
+  padding: 15px; }
+
+.sCol {
+  width: 50%;
+  float: left;
+  padding: 15px; }
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-m-1 {
+    width: 8.33%; }
+
+  .col-m-2 {
+    width: 16.66%; }
+
+  .col-m-3 {
+    width: 25%; }
+
+  .col-m-4 {
+    width: 33.33%; }
+
+  .col-m-5 {
+    width: 41.66%; }
+
+  .col-m-6 {
+    width: 50%; }
+
+  .col-m-7 {
+    width: 58.33%; }
+
+  .col-m-8 {
+    width: 66.66%; }
+
+  .col-m-9 {
+    width: 75%; }
+
+  .col-m-10 {
+    width: 83.33%; }
+
+  .col-m-11 {
+    width: 91.66%; }
+
+  .col-m-12 {
+    width: 100%; } }
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {
+    width: 8.33%; }
+
+  .col-2 {
+    width: 16.66%; }
+
+  .col-3 {
+    width: 25%; }
+
+  .col-4 {
+    width: 33.33%; }
+
+  .col-5 {
+    width: 41.66%; }
+
+  .col-6 {
+    width: 50%; }
+
+  .col-7 {
+    width: 58.33%; }
+
+  .col-8 {
+    width: 66.66%; }
+
+  .col-9 {
+    width: 75%; }
+
+  .col-10 {
+    width: 83.33%; }
+
+  .col-11 {
+    width: 91.66%; }
+
+  .col-12 {
+    width: 100%; } }
+.container {
+  height: 100vh;
+  width: 100vw;
+  position: relative; }
+  .container .feature {
+    z-index: 100;
+    overflow: hidden;
+    height: 25%;
+    width: 100%;
+    position: relative;
+    position: absolute;
+    transition: height 0.5s ease, width 0.35s 0.5s ease;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+    cursor: pointer; }
+    @media only screen and (min-width: 600px) {
+      .container .feature {
+        height: 50%;
+        position: absolute;
+        width: 50%; } }
+    .container .feature .content {
+      color: white;
+      position: absolute;
+      font-family: 'Roboto', sans-serif;
+      top: 50%;
+      left: 50%;
+      z-index: 100;
+      transform: translate(-50%, -50%);
+      margin: 0 auto;
+      height: auto;
+      width: auto;
+      text-align: center;
+      transition: transform 0.3s ease; }
+      .container .feature .content .icon {
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: 0 auto;
+        height: 60px;
+        width: 60px; }
+      .container .feature .content h1 {
+        font-size: 2.2vw;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 5px; }
+      .container .feature .content span {
+        color: rgba(245, 245, 245, 0.7); }
+    .container .feature::after {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(30, 30, 30, 0.8);
+      transition: background-color 0.2s ease; }
+    .container .feature:hover::after {
+      background-color: rgba(30, 30, 30, 0.45); }
+    .container .feature:active {
+      height: 100%;
+      width: 100%; }
+  .container .oneRM {
+    background-image: url("images/deadlift.jpg");
+    top: 0;
+    left: 0; }
+  .container .tdee {
+    background-image: url("images/food.jpg");
+    top: 0;
+    right: 0; }
+  .container .lbm {
+    background-image: url("images/shredded.jpg");
+    bottom: 0;
+    left: 0; }
+  .container .thr {
+    background-image: url("images/cardio.jpg");
+    bottom: 0;
+    right: 0; }
+
+.feature:hover .content {
+  transform: translate(-50%, -60%); }
+
+/*# sourceMappingURL=exerciseTools.css.map */
