@@ -101,13 +101,13 @@ body {
   width: 100vw;
   position: relative; }
   .container .feature {
-    z-index: 100;
+    z-index: 0;
     overflow: hidden;
     height: 25%;
     width: 100%;
     position: relative;
     position: absolute;
-    transition: height 0.5s ease, width 0.35s 0.5s ease;
+    transition: height 0.5s ease, width 0.35s 0.5s ease, box-shadow 0.2s;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -124,7 +124,7 @@ body {
       font-family: 'Roboto', sans-serif;
       top: 50%;
       left: 50%;
-      z-index: 100;
+      z-index: 1;
       transform: translate(-50%, -50%);
       margin: 0 auto;
       height: auto;
@@ -156,9 +156,11 @@ body {
       transition: background-color 0.2s ease; }
     .container .feature:hover::after {
       background-color: rgba(30, 30, 30, 0.45); }
-    .container .feature:active {
-      height: 100%;
-      width: 100%; }
+  .container .expanded {
+    height: 100%;
+    width: 100%;
+    cursor: auto;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
   .container .oneRM {
     background-image: url("images/deadlift.jpg");
     top: 0;
