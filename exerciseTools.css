@@ -107,10 +107,11 @@ body {
     width: 100%;
     position: relative;
     position: absolute;
-    transition: height 0.5s ease, width 0.35s 0.5s ease, box-shadow 0.2s;
+    transition: height 0.4s ease, width 0.25s 0.4s ease;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     padding: 0;
     cursor: pointer; }
     @media only screen and (min-width: 600px) {
@@ -118,6 +119,24 @@ body {
         height: 50%;
         position: absolute;
         width: 50%; } }
+    .container .feature .close {
+      position: absolute;
+      z-index: 2;
+      top: 30px;
+      right: 60px;
+      height: 45px;
+      width: 45px;
+      border-radius: 50%;
+      background-color: white;
+      opacity: 0;
+      transition: opacity 0.5s ease; }
+      .container .feature .close img {
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        position: absolute; }
     .container .feature .content {
       color: white;
       position: absolute;
@@ -138,7 +157,8 @@ body {
         bottom: 0;
         margin: 0 auto;
         height: 60px;
-        width: 60px; }
+        width: 60px;
+        transition: 0.2s ease; }
       .container .feature .content h1 {
         font-size: 2.2vw;
         text-align: center;
@@ -156,11 +176,6 @@ body {
       transition: background-color 0.2s ease; }
     .container .feature:hover::after {
       background-color: rgba(30, 30, 30, 0.45); }
-  .container .expanded {
-    height: 100%;
-    width: 100%;
-    cursor: auto;
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
   .container .oneRM {
     background-image: url("images/deadlift.jpg");
     top: 0;
@@ -177,8 +192,33 @@ body {
     background-image: url("images/cardio.jpg");
     bottom: 0;
     right: 0; }
+  .container .expanded {
+    height: 100%;
+    width: 100%;
+    cursor: auto; }
 
-.feature:hover .content {
-  transform: translate(-50%, -60%); }
+.feature:hover .content .icon {
+  height: 70px;
+  width: 70px; }
+
+.card-1 {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer; }
+
+.card-1:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+
+.card-2 {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+
+.card-3 {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+
+.card-4 {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+
+.card-5 {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
 
 /*# sourceMappingURL=exerciseTools.css.map */

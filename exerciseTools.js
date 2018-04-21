@@ -43,7 +43,7 @@ $(window).bind("load", function() {
 
 /*===============*/
 $(document).ready(function(){
-
+  var expandedDiv;
 
   //Remove mobile nav overlay
   $(window).on('resize', function(){
@@ -59,10 +59,21 @@ $(document).ready(function(){
   });
 
   //============== CLICKABLE PROTOTYPE ================
-  $('.feature').mousedown(function(){
-    console.log($(this));
-    $(this).css('z-index', '2');
-    $(this).addClass('expanded');
+  $('.feature').click(function(){
+        console.log(!$(this).hasClass('expanded'))
+        $(this).css('z-index', '2');
+        $(this).addClass('expanded');
+        expandedDiv = $(this);
+        setTimeout(function(){
+            expandedDiv.find('.close').css('opacity', '1');
+          }, 300);
+  });
+
+  $('.close').click(function(){
+    expandedDiv.css('height', '50%');
+    expandedDiv.css('width', '50%');
+    expandedDiv.find('.close').css('opacity', '0');
+
   });
 
 
