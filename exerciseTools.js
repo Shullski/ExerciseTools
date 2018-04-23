@@ -61,13 +61,13 @@ $(document).ready(function(){
     setTimeout(function(){
         $('.close').css({'height':'45px', 'width':'45px'});
         $('.expandedContent').fadeIn(400);
-        $('.expandedContent > .container').css('transform', 'translate(-50%, -50%)');
+        $('.expandedContent').css('transform', 'translate(50%, 50%)');
       },600);
     });
 
   $('.close').click(function(){
     $('.expandedContent').fadeOut(200);
-    $('.expandedContent > .container').css('transform', 'translate(-50%, -35%)');
+    $('.expandedContent').css('transform', 'translate(50%, 60%)');
     expandedDiv.css('height', '50%');
     expandedDiv.css('width', '50%');
     expandedDiv.find('span, .icon').fadeIn(500);

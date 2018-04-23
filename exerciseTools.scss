@@ -7,6 +7,10 @@ $darkRed: darken($red, 10%);
 $darkOrange: darken($orange, 10%);
 $darkGreen: darken($green, 10%);
 $darkPurple: darken($purple, 10%);
+$transparentDark: rgba(40,40,40,0.9);
+$transparentMedium: rgba(75,75,75,0.7);
+
+$transparentLight: rgba(110,110,110,0.8);
 
 /* Responsive Design */
 * { box-sizing: border-box; }
@@ -103,12 +107,11 @@ body{
     background-size: cover;
     background-attachment: fixed;
     text-align: center;
-    overflow:hidden;
+    //overflow:hidden;
     z-index:0;
     padding:0;
     cursor:pointer;
     transition: height 0.4s ease, width 0.25s 0.4s ease;
-
     .content {
       color:white;
       position: absolute;
@@ -156,116 +159,83 @@ body{
 
 
   .oneRM {
-    background-image:linear-gradient(to right, $orange, $darkOrange);
+    background-image:url('images/deadlift-min.jpg');
     top:0; left:0;
-    @media only screen and (min-width: 600px) { background-image:url('images/cardio-min.jpg'); }
     .expandedContent {
-      border:1px dashed white;
+      //border:1px dashed white;
       bottom:50%; right:50%;
-      transform: translate(50%,50%);
+      transform: translate(50%,60%);
       position:absolute;
       height:auto;
       width:100%;
-      max-width:500px;
+      max-width:800px;
       height:auto;
-      overflow:hidden;
-      clear:both;
+      z-index:10;
+      //overflow:hidden;
+      font-family: 'Roboto', sans-serif;
+      display:none;
+      transition: transform 0.5s ease-in-out;
+      .section {
+        background-color: $transparentDark;
+        width:100%;
+      }
+      .userInput {
+        width:100%;
+        margin:0 auto;
+        padding:10px;
+        margin-bottom:40px;
+        border-radius:10px;
+        div { color: white; text-transform: uppercase;}
+      }
+      input {
+        height:50px;
+        text-align: center;
+        text-transform: uppercase; font-weight: bolder;
+        background-color: $transparentLight;
+        border:none; border-radius:5px;
+        color:white; font-size:16px;
+        &::placeholder { color: rgb(190,190,190); }
+        &:focus { outline: none; border:1px solid white; }
+      }
+      .output {
+        position:relative;
+        overflow:hidden;
+        max-height:200px;
+        width:80%;
+        margin:auto;
+        overflow-y: scroll;
+        div {
+          margin-bottom:10px;
+        }
+        &:last-child {margin-bottom:0px;}
+        .repNumber {
+          background-color: $transparentLight;
+          height:45px;
+          font-size: 14px;
+          text-transform: uppercase;
+          color:rgb(200,200,200);
+        }
+        .repMax {
+          background-color: $transparentMedium;
+          height:45px;
+        }
+      }
     }
-
-    // .expandedContent {
-    //   z-index:9;
-    //   position:absolute;
-    //   //width:100%;
-    //   max-width:1000px;
-    //   height:auto;
-    //   top:0; bottom:0; left:0; right:0;
-    //   margin:auto;
-    //   max-height: 500px;
-    //   //border:1px solid white;
-    //   padding:0;
-    //   display:none;
-    //   border:1px dotted black;
-    //   .container {
-    //     //border:2px dashed red;
-    //     position:absolute;
-    //     width:100%;
-    //     height:auto;
-    //     top:50%;left:50%;
-    //     transform:translate(-50%, -35%);
-    //     transition:transform 0.6s ease-in-out;
-    //     border:1px dotted white;
-    //
-    //   }
-    //   .input {
-    //     background-color:rgba(80,80,80,0.7);
-    //     border-radius: 5px;
-    //     width:100%;
-    //     height:auto;
-    //     position: relative;
-    //     display: inline-block;
-    //     margin-bottom:0px;
-    //     padding:10px;
-    //     .row {
-    //       margin-bottom:25px;
-    //     }
-    //     div {
-    //       color:white;
-    //       font-size: 16px;
-    //       text-transform: uppercase;
-    //       text-align: center;
-    //       font-family: 'Roboto', sans-serif;
-    //     }
-    //     input {
-    //       border-radius: 5px;
-    //       background-color:rgba(130,130,130,0.8);
-    //       border:none;
-    //       color:white;
-    //       font-size: 16px;
-    //       text-transform: uppercase;
-    //       text-align: center;
-    //       font-family: 'Roboto', sans-serif;
-    //       &::placeholder {color:rgb(170,170,170);}
-    //       &:focus {outline-color:white;}
-    //     }
-    //     .calculate {
-    //       background-color:rgb(220,220,220);
-    //       border-radius: 5px;
-    //       padding:10px 50px 10px 50px;
-    //       font-family: 'Roboto', sans-serif;
-    //       color:rgb(30,30,30);
-    //       max-width:400px;
-    //       position:absolute;
-    //       bottom:0%;left:50%;
-    //       transform: translate(-50%, 50%);
-    //       transition: 0.2s;
-    //       &:active {transform: translate(-50%, 50%) scale(0.95); background-color:rgb(200,200,200);}
-    //     }
-    //   }
-    //   .output {
-    //     position: relative;
-    //     background-color:rgba(80,80,80,0.7);
-    //     border-radius: 5px;
-    //     width:80%;
-    //     margin:0 auto;
-    //     margin-top:50px;
-    //     max-height:500px;
-    //   }
-    // }
   }
   .tdee{
-    background-image:linear-gradient(to right, $red, $darkRed);
+    background-image:url('images/food-min.jpg');
     top:25%;
-    @media only screen and (min-width: 600px) {top: 0; right:0; background-image:url('images/food-min.jpg');}
+    @media only screen and (min-width: 600px) {top: 0; right:0; }
   }
   .lbm {
-    background-image:linear-gradient(to right, $purple, $darkPurple);
-    top:50%;
-    @media only screen and (min-width: 600px) {left:0; background-image:url('images/shredded-min.jpg');}
+    background-image:url('images/shredded-min.jpg');
+    bottom:25%;
+    @media only screen and (min-width: 600px) {bottom:0; left:0;}
   }
   .thr {
-    background-image:linear-gradient(to right, $green, $darkGreen);
+    background-image:url('images/cardio-min.jpg');
     bottom:0;
-    @media only screen and (min-width: 600px) {bottom: 0; right:0; background-image:url('images/cardio-min.jpg');}
+    @media only screen and (min-width: 600px) {right:0;}
   }
 
   .expanded {
@@ -331,7 +301,7 @@ body{
 
 .closeContainer {
   position:absolute;
-  top:30px; right:60px;
+  top:3%; right:3%;
   height:50px; width:50px;
   z-index:10;
   pointer-events: none;
@@ -352,4 +322,24 @@ body{
       position:absolute;
     }
   }
+}
+
+/* width */
+.output::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+.output::-webkit-scrollbar-track {
+  background: $transparentDark;
+}
+
+/* Handle */
+.output::-webkit-scrollbar-thumb {
+  background: rgb(130,130,130);
+}
+
+/* Handle on hover */
+.output::-webkit-scrollbar-thumb:hover {
+  display:none;
 }
