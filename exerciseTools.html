@@ -15,7 +15,7 @@
 
 <body>
 <div class = 'container row'>
-  <div class = 'closeContainer'><div class = 'close card-1'><img src = 'icons/close.svg'></div></div>
+  <div class = 'closeContainer'><div class = 'close card-1'><img src = 'icons/close-white.svg'></div></div>
   <div id = 'tl' class = 'feature oneRM sCol'>
     <div class = 'content'>
       <div class = 'icon'>
@@ -27,23 +27,35 @@
       <span>An estimate of the max weight you can rep once</span>
     </div>
     <div class = 'expandedContent'>
+
       <div class = 'userInput row section card-2'>
-        <input class = 'Acol-5' id = 'weight' autocomplete = 'off' placeholder = 'weight'><div class = 'Acol-2'>for</div><input class = 'Acol-5' id = 'reps' autocomplete = 'off' placeholder = 'reps'>
+        <div class = 'row'><input class = 'Acol-5' id = 'weight' autocomplete = 'off' placeholder = 'weight'><div class = 'for Acol-2'>for</div><input class = 'Acol-5' id = 'reps' autocomplete = 'off' placeholder = 'reps'></div>
+        <div class = 'calculate card-1'>Calculate</div>
       </div>
-      <div class = 'output row section card-2'>
-        <div class = 'repNumber col-4'>1 rep</div><div class = 'repMax col-8'></div>
-        <div class = 'repNumber col-4'>2 reps</div><div class = 'repMax col-8'></div>
-        <div class = 'repNumber col-4'>3 reps</div><div class = 'repMax col-8'></div>
-        <div class = 'repNumber col-4'>4 reps</div><div class = 'repMax col-8'></div>
-        <div class = 'repNumber col-4'>5 reps</div><div class = 'repMax col-8'></div>
-        <div class = 'repNumber col-4'>6 reps</div><div class = 'repMax col-8'></div>
-        <div class = 'repNumber col-4'>7 reps</div><div class = 'repMax col-8'></div>
-        <div class = 'repNumber col-4'>8 reps</div><div class = 'repMax col-8'></div>
-        <div class = 'repNumber col-4'>9 reps</div><div class = 'repMax col-8'></div>
-        <div class = 'repNumber col-4'>10 reps</div><div class = 'repMax col-8'></div>
-        <div class = 'repNumber col-4'>11 reps</div><div class = 'repMax col-8'></div>
-        <div class = 'repNumber col-4'>12 reps</div><div class = 'repMax col-8'></div>
+      <div id  = 'oneRepMaxOutput' class = 'output row section card-2'>
+        <div class = 'scrolldown'><img src = 'icons/more.svg'></div>
+        <div class = 'repNumber Acol-4'>1 rep</div><div id = 'max' class = 'repMax Acol-8'></div>
+        <div class = 'repNumber Acol-4'>2 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
+        <div class = 'repNumber Acol-4'>3 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
+        <div class = 'repNumber Acol-4'>4 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
+        <div class = 'repNumber Acol-4'>5 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
+        <div class = 'repNumber Acol-4'>6 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
+        <div class = 'repNumber Acol-4'>7 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
+        <div class = 'repNumber Acol-4'>8 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
+        <div class = 'repNumber Acol-4'>9 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
+        <div class = 'repNumber Acol-4'>10 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
+        <div class = 'repNumber Acol-4'>11 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
+        <div class = 'repNumber Acol-4'>12 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
+        <div class = 'repNumber Acol-4'>13 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
+        <div class = 'repNumber Acol-4'>14 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
+        <div class = 'repNumber Acol-4'>15 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
+        <div class = 'repNumber Acol-4'>16 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
+        <div class = 'repNumber Acol-4'>17 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
+        <div class = 'repNumber Acol-4'>18 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
+        <div class = 'repNumber Acol-4'>19 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
+        <div class = 'repNumber Acol-4'>20 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
       </div>
+      <div class = 'error card-5'>Enter weight & reps</div>
     </div>
   </div>
 
