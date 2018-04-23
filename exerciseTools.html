@@ -8,16 +8,15 @@
   <link rel= "stylesheet" type="text/css" href="exerciseTools.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src = "exerciseTools.js"></script>
   <link rel="stylesheet" href="https://use.typekit.net/bxn0dyo.css">
 </head>
 
 <body>
 <div class = 'container row'>
-
-  <div class = 'feature oneRM sCol'>
-    <div id = 'exit' class = 'close card-1'><img src = 'icons/close.svg'></div>
+  <div class = 'closeContainer'><div class = 'close card-1'><img src = 'icons/close.svg'></div></div>
+  <div id = 'tl' class = 'feature oneRM sCol'>
     <div class = 'content'>
       <div class = 'icon'>
         <svg viewBox="0 0 24 24">
@@ -27,10 +26,18 @@
       <h1>One&nbspRep&nbspMax</h1>
       <span>An estimate of the max weight you can rep once</span>
     </div>
+    <div class = 'expandedContent'>
+      <!-- <div class = 'container'>
+        <div class = 'input card-2'>
+          <div class = 'row'><input class = 'Acol-5' id = 'weight' type = 'text' placeholder = 'weight' autocomplete = 'off'><div class = 'Acol-2'>for</div><input class = 'Acol-5' id = 'reps' type = 'text' placeholder = 'reps' autocomplete = 'off'></div>
+          <div class = 'calculate card-1'>Calculate</div>
+        </div>
+        <div class = 'output'></div>
+      </div> -->
+    </div>
   </div>
 
-  <div class = 'feature tdee sCol'>
-    <div id = 'exit' class = 'close card-1'><img src = 'icons/close.svg'></div>
+  <div id = 'tr' class = 'feature tdee sCol'>
     <div class = 'content'>
       <div class = 'icon'>
         <svg viewBox="0 0 24 24">
@@ -42,8 +49,7 @@
     </div>
   </div>
 
-  <div class = 'feature lbm sCol'>
-    <div id = 'exit' class = 'close card-1'><img src = 'icons/close.svg'></div>
+  <div id = 'bl' class = 'feature lbm sCol'>
     <div class = 'content'>
       <div class = 'icon'>
         <svg viewBox="0 0 24 24">
@@ -55,8 +61,7 @@
     </div>
   </div>
 
-  <div class = 'feature thr sCol'>
-    <div id = 'exit' class = 'close card-1'><img src = 'icons/close.svg'></div>
+  <div id = 'br' class = 'feature thr sCol'>
     <div class = 'content'>
       <div class = 'icon'>
         <svg viewBox="0 0 24 24">

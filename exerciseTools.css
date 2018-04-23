@@ -5,7 +5,9 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #141414; }
+  background-color: #141414;
+  width: 100vw;
+  height: 100vh; }
 
 .row::after {
   content: '';
@@ -21,6 +23,42 @@ body {
   width: 50%;
   float: left;
   padding: 15px; }
+
+.Acol-1 {
+  width: 8.33%; }
+
+.Acol-2 {
+  width: 16.66%; }
+
+.Acol-3 {
+  width: 25%; }
+
+.Acol-4 {
+  width: 33.33%; }
+
+.Acol-5 {
+  width: 41.66%; }
+
+.Acol-6 {
+  width: 50%; }
+
+.Acol-7 {
+  width: 58.33%; }
+
+.Acol-8 {
+  width: 66.66%; }
+
+.Acol-9 {
+  width: 75%; }
+
+.Aol-10 {
+  width: 83.33%; }
+
+.Acol-11 {
+  width: 91.66%; }
+
+.Acol-12 {
+  width: 100%; }
 
 @media only screen and (min-width: 600px) {
   /* For tablets: */
@@ -99,44 +137,27 @@ body {
 .container {
   height: 100vh;
   width: 100vw;
-  position: relative; }
+  position: relative;
+  transition: transform 0.3s ease; }
   .container .feature {
-    z-index: 0;
-    overflow: hidden;
+    position: absolute;
     height: 25%;
     width: 100%;
-    position: relative;
-    position: absolute;
-    transition: height 0.4s ease, width 0.25s 0.4s ease;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    text-align: center;
+    overflow: hidden;
+    z-index: 0;
     padding: 0;
-    cursor: pointer; }
+    cursor: pointer;
+    transition: height 0.4s ease, width 0.25s 0.4s ease; }
     @media only screen and (min-width: 600px) {
       .container .feature {
         height: 50%;
-        position: absolute;
-        width: 50%; } }
-    .container .feature .close {
-      position: absolute;
-      z-index: 2;
-      top: 30px;
-      right: 60px;
-      height: 45px;
-      width: 45px;
-      border-radius: 50%;
-      background-color: white;
-      opacity: 0;
-      transition: opacity 0.5s ease; }
-      .container .feature .close img {
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        margin: auto;
-        position: absolute; }
+        width: 50%;
+        position: absolute; } }
     .container .feature .content {
       color: white;
       position: absolute;
@@ -145,11 +166,10 @@ body {
       left: 50%;
       z-index: 1;
       transform: translate(-50%, -50%);
-      margin: 0 auto;
       height: auto;
       width: auto;
       text-align: center;
-      transition: transform 0.3s ease; }
+      transition: transform 0.3s; }
       .container .feature .content .icon {
         top: 0;
         right: 0;
@@ -177,21 +197,47 @@ body {
     .container .feature:hover::after {
       background-color: rgba(30, 30, 30, 0.45); }
   .container .oneRM {
-    background-image: url("images/deadlift.jpg");
+    background-image: linear-gradient(to right, #ff9c4c, #ff8019);
     top: 0;
     left: 0; }
+    @media only screen and (min-width: 600px) {
+      .container .oneRM {
+        background-image: url("images/cardio-min.jpg"); } }
+    .container .oneRM .expandedContent {
+      border: 1px dashed white;
+      bottom: 50%;
+      right: 50%;
+      transform: translate(50%, 50%);
+      position: absolute;
+      height: auto;
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      overflow: hidden;
+      clear: both; }
   .container .tdee {
-    background-image: url("images/food.jpg");
-    top: 0;
-    right: 0; }
+    background-image: linear-gradient(to right, #ff694c, #ff3e19);
+    top: 25%; }
+    @media only screen and (min-width: 600px) {
+      .container .tdee {
+        top: 0;
+        right: 0;
+        background-image: url("images/food-min.jpg"); } }
   .container .lbm {
-    background-image: url("images/shredded.jpg");
-    bottom: 0;
-    left: 0; }
+    background-image: linear-gradient(to right, #8d4cff, #6d19ff);
+    top: 50%; }
+    @media only screen and (min-width: 600px) {
+      .container .lbm {
+        left: 0;
+        background-image: url("images/shredded-min.jpg"); } }
   .container .thr {
-    background-image: url("images/cardio.jpg");
-    bottom: 0;
-    right: 0; }
+    background-image: linear-gradient(to right, #4cff93, #19ff74);
+    bottom: 0; }
+    @media only screen and (min-width: 600px) {
+      .container .thr {
+        bottom: 0;
+        right: 0;
+        background-image: url("images/cardio-min.jpg"); } }
   .container .expanded {
     height: 100%;
     width: 100%;
@@ -203,7 +249,7 @@ body {
 
 .card-1 {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: pointer; }
 
 .card-1:hover {
@@ -220,5 +266,36 @@ body {
 
 .card-5 {
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
+
+.closeContainer {
+  position: absolute;
+  top: 30px;
+  right: 60px;
+  height: 50px;
+  width: 50px;
+  z-index: 10;
+  pointer-events: none; }
+  .closeContainer .close {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    height: 0px;
+    width: 0px;
+    border-radius: 50%;
+    background-color: white;
+    overflow: hidden;
+    transition: height 0.2s ease, width 0.2s ease;
+    pointer-events: auto; }
+    .closeContainer .close img {
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+      position: absolute; }
 
 /*# sourceMappingURL=exerciseTools.css.map */

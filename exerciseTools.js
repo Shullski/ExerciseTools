@@ -1,22 +1,5 @@
-//Main colors
-/* ============== */
-var redHex = '#F75B54';
-var greenHex = '#00E985';
-var tealHex = '#10DBE8';
-var blueHex = '#54A0F7';
-var purpleHex = '#B954F7';
-/* ============= */
-//To simulate "passing by reference"
-//to determine if scrolling up or down
+//Used to determine if scrolling up or down
 var lastScrollPosition = 0;
-
-//Returns how far down an element is on page
-function getScrollPosition(element) {
-  var position = $(element).position().top;
-  return position;
-}
-
-///Determine which nav option the user is currently scrolled over
 
 //Determines if the user is scrolling up (true) or down (false)
 function isScrollingUp(pos) {
@@ -29,13 +12,15 @@ function isScrollingUp(pos) {
   }
 }
 
-
+//Returns how far down an element is on page
+function getScrollPosition(element) {
+  var position = $(element).position().top;
+  return position;
+}
 
 function startLoadAnimation() {
     loadTimer = setInterval(loadAnimation, 300);
 }
-
-
 
 $(window).bind("load", function() {
 
@@ -44,7 +29,8 @@ $(window).bind("load", function() {
 /*===============*/
 $(document).ready(function(){
   var expandedDiv;
-
+  var prevExpandedDiv;
+  console.log($('.input').css('display'));
   //Remove mobile nav overlay
   $(window).on('resize', function(){
   });
@@ -60,19 +46,34 @@ $(document).ready(function(){
 
   //============== CLICKABLE PROTOTYPE ================
   $('.feature').click(function(){
-        console.log(!$(this).hasClass('expanded'))
-        $(this).css('z-index', '2');
-        $(this).addClass('expanded');
-        expandedDiv = $(this);
-        setTimeout(function(){
-            expandedDiv.find('.close').css('opacity', '1');
-          }, 300);
-  });
+    expandedDiv = $(this);
+    var theid = expandedDiv.attr('id');
+    var thisid;
+    console.log(theid);
+    //console.log('here: ' + $(expandedDiv));
+    if(prevExpandedDiv) prevExpandedDiv.css('z-index', '2');
+    expandedDiv.css('height', '100%');
+    expandedDiv.css('width', '100%');
+    expandedDiv.css('z-index', '3');
+    expandedDiv.find('span, .icon').fadeOut(200);
+    expandedDiv.find('.content').animate({top: '55px'}, 400);
+
+    setTimeout(function(){
+        $('.close').css({'height':'45px', 'width':'45px'});
+        $('.expandedContent').fadeIn(400);
+        $('.expandedContent > .container').css('transform', 'translate(-50%, -50%)');
+      },600);
+    });
 
   $('.close').click(function(){
+    $('.expandedContent').fadeOut(200);
+    $('.expandedContent > .container').css('transform', 'translate(-50%, -35%)');
     expandedDiv.css('height', '50%');
     expandedDiv.css('width', '50%');
-    expandedDiv.find('.close').css('opacity', '0');
+    expandedDiv.find('span, .icon').fadeIn(500);
+    expandedDiv.find('.content').animate({top: '50%'}, 400);
+    $('.close').css({'height':'0px', 'width': '0px'});
+    prevExpandedDiv = expandedDiv;
 
   });
 
