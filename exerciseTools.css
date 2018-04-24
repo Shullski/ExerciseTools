@@ -141,6 +141,7 @@ body {
   transition: transform 0.3s ease; }
   .container .feature {
     position: absolute;
+    overflow: hidden;
     height: 25%;
     width: 100%;
     background-position: center;
@@ -150,7 +151,6 @@ body {
     text-align: center;
     z-index: 0;
     padding: 0;
-    cursor: pointer;
     transition: height 0.4s ease, width 0.25s 0.4s ease; }
     @media only screen and (min-width: 600px) {
       .container .feature {
@@ -165,6 +165,7 @@ body {
       left: 50%;
       z-index: 1;
       transform: translate(-50%, -50%);
+      pointer-events: none;
       height: auto;
       width: auto;
       text-align: center;
@@ -185,20 +186,30 @@ body {
         margin-bottom: 5px; }
       .container .feature .content span {
         color: rgba(245, 245, 245, 0.7); }
-    .container .feature::after {
-      content: '';
+    .container .feature .darkOverlay {
       position: absolute;
-      display: block;
       height: 100%;
       width: 100%;
-      background-color: rgba(30, 30, 30, 0.8);
-      transition: background-color 0.2s ease; }
-    .container .feature:hover::after {
-      background-color: rgba(30, 30, 30, 0.45); }
+      background: linear-gradient(to left, #ff7979, #f89654);
+      z-index: 1;
+      display: block; }
+      @media only screen and (min-width: 600px) {
+        .container .feature .darkOverlay {
+          background: none;
+          background-color: rgba(20, 20, 20, 0.4); } }
+    .container .feature .overlayHover {
+      transition: background-color 0.2s;
+      background-color: rgba(20, 20, 20, 0.8);
+      cursor: pointer; }
+      .container .feature .overlayHover:hover, .container .feature .overlayHover .darkOverlay {
+        background-color: rgba(20, 20, 20, 0.4); }
   .container .oneRM {
-    background-image: url("images/deadlift-min.jpg");
+    background-image: url("textures/funky.png");
     top: 0;
     left: 0; }
+    @media only screen and (min-width: 600px) {
+      .container .oneRM {
+        background-image: url("images/deadlift-min.jpg"); } }
     .container .oneRM .expandedContent {
       bottom: 50%;
       right: 50%;
@@ -212,6 +223,13 @@ body {
       font-family: 'Roboto', sans-serif;
       display: none;
       transition: transform 0.5s ease-in-out; }
+      .container .oneRM .expandedContent h1 {
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-size: 26px; }
+      .container .oneRM .expandedContent .section {
+        background-color: rgba(40, 40, 40, 0.9);
+        width: 100%; }
       .container .oneRM .expandedContent .error {
         padding: 30px 30px 30px 30px;
         z-index: 20;
@@ -228,9 +246,6 @@ body {
         display: none;
         transform: translate(-50%, -50%);
         border-radius: 10px; }
-      .container .oneRM .expandedContent .section {
-        background-color: rgba(40, 40, 40, 0.9);
-        width: 100%; }
       .container .oneRM .expandedContent .userInput {
         width: 90%;
         margin: 0 auto;
@@ -310,25 +325,75 @@ body {
           height: 45px;
           color: white; }
   .container .tdee {
-    background-image: url("images/food-min.jpg");
+    background-image: url("textures/funky.png");
     top: 25%; }
     @media only screen and (min-width: 600px) {
       .container .tdee {
         top: 0;
-        right: 0; } }
+        right: 0;
+        background-image: url("images/food-min.jpg"); } }
+    .container .tdee .expandedContent {
+      bottom: 50%;
+      right: 50%;
+      transform: translate(50%, 55%);
+      position: absolute;
+      height: auto;
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+      z-index: 10;
+      color: white;
+      font-family: 'Roboto', sans-serif;
+      display: none;
+      transition: transform 0.5s ease-in-out; }
+      .container .tdee .expandedContent .section {
+        background-color: rgba(40, 40, 40, 0.9);
+        width: 100%;
+        border-radius: 10px; }
+      .container .tdee .expandedContent .userInput {
+        width: 90%;
+        margin: auto; }
+      .container .tdee .expandedContent h1 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 26px;
+        margin-top: 0; }
+      .container .tdee .expandedContent h2 {
+        font-size: 18px;
+        font-weight: lighter;
+        margin-top: 0px;
+        margin-bottom: 10px; }
+      .container .tdee .expandedContent input {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bolder;
+        background-color: rgba(110, 110, 110, 0.8);
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        color: white; }
+        .container .tdee .expandedContent input::placeholder {
+          color: #bebebe; }
+        .container .tdee .expandedContent input:focus {
+          outline: none;
+          border: 1px solid white; }
+      .container .tdee .expandedContent .ft, .container .tdee .expandedContent .in {
+        text-align: center;
+        padding: 15px 0 15px 0; }
   .container .lbm {
-    background-image: url("images/shredded-min.jpg");
+    background-image: url("textures/funky.png");
     bottom: 25%; }
     @media only screen and (min-width: 600px) {
       .container .lbm {
         bottom: 0;
-        left: 0; } }
+        left: 0;
+        background-image: url("images/shredded-min.jpg"); } }
   .container .thr {
-    background-image: url("images/cardio-min.jpg");
+    background-image: url("textures/funky.png");
     bottom: 0; }
     @media only screen and (min-width: 600px) {
       .container .thr {
-        right: 0; } }
+        right: 0;
+        background-image: url("images/cardio-min.jpg"); } }
   .container .expanded {
     height: 100%;
     width: 100%;

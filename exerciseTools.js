@@ -1,15 +1,21 @@
-//COLORS
+//======= NEEDED GLOBALS =======
+//Colors
 var pink = '#ff7979';
 var lightPink = '#ff9393';
 var orange = '#f89654';
 var lightOrange = '#f9ab76'
 
-//Used to determine if scrolling up or down
+var mobileBreakpoint = 600;
+var tabletBreakpoint = 768;
+//Tracking scroll position
 var lastScrollPosition = 0;
-
+//Tracking which feature is open
+var expandedDiv;
+var prevExpandedDiv;
 //Coefficients for one rep max
 var maxCoeffecients = [1.0, .943, .906, .881, .856, .831, .807, .786, .765, .744, .723, .703, .688, .675, .662, .650, .638, .627, .616, .606];
 
+//=== FUCTIONALITY ===
 function getRepMaxes(weight, reps) {
   var results = [];
   var oneRepMax = 1.0278 - (0.0278 * reps);
@@ -21,7 +27,7 @@ function getRepMaxes(weight, reps) {
   return results;
 }
 
-//Determines if the user is scrolling up (true) or down (false)
+//Determines scroll direction
 function isScrollingUp(pos) {
   if(lastScrollPosition > pos) {
     lastScrollPosition = pos;
@@ -30,6 +36,10 @@ function isScrollingUp(pos) {
     lastScrollPosition = pos;
     return false;
   }
+}
+
+function isMobile(width) {
+
 }
 
 //Returns how far down an element is on page
@@ -47,13 +57,6 @@ $(window).bind("load", function() {
 
 /*===============*/
 $(document).ready(function(){
-  console.log(getRepMaxes(155,3));
-
-  var expandedDiv;
-  var prevExpandedDiv;
-  console.log($('.input').css('display'));
-
-  //Remove mobile nav overlay
   $(window).on('resize', function(){
   });
 
@@ -61,7 +64,7 @@ $(document).ready(function(){
     var position = $(this).scrollTop();
   });
 
-  //Show more arrow on 1rm output
+  //========Show/hide scroll arrow on 1rm output=======
   $('.output').scroll(function() {
     var outputPosition = $(this).scrollTop();
     if(outputPosition > 40 ) {
@@ -76,38 +79,39 @@ $(document).ready(function(){
     }, function(){
   });
 
-  //============== CLICKABLE PROTOTYPE ================
+  //============== Expanding a feature ================
   $('.feature').click(function(){
     expandedDiv = $(this);
-    var theid = expandedDiv.attr('id');
-    var thisid;
-    console.log(theid);
-    //console.log('here: ' + $(expandedDiv));
+    //Put old overlay behind new one if it exists
     if(prevExpandedDiv) prevExpandedDiv.css('z-index', '2');
-    expandedDiv.css('height', '100%');
-    expandedDiv.css('width', '100%');
-    expandedDiv.css('z-index', '3');
-    expandedDiv.find('span, .icon').fadeOut(200);
-    expandedDiv.find('.content').animate({top: '55px'}, 400);
+    //Expand Div
+    expandedDiv.css({'height': '100%', 'width':'100%', 'z-index': '3'});
+    expandedDiv.find('.content').fadeOut(200);
+    expandedDiv.find('.darkOverlay').removeClass('overlayHover');
+    //Color exit button
     $('.close').css('background', 'linear-gradient(to top right, ' + pink + ' 40%, ' + orange + ')');
     setTimeout(function(){
-        $('.close').css({'height':'45px', 'width':'45px'});
-        $('.expandedContent').fadeIn(400);
-        $('.expandedContent').css('transform', 'translate(50%, 50%)');
-      },600);
-    });
+      $('.close').css({'height':'45px', 'width':'45px'});
+      $(expandedDiv).find('.expandedContent').fadeIn(400);
+      $(expandedDiv).find('.expandedContent').css('transform', 'translate(50%, 50%)');
+    },600);
+  });
 
+  //============== Closing a feature ================
   $('.close').click(function(){
     $('.expandedContent').fadeOut(200);
     $('.expandedContent').css('transform', 'translate(50%, 55%)');
-    expandedDiv.css('height', '50%');
-    expandedDiv.css('width', '50%');
-    expandedDiv.find('span, .icon').fadeIn(500);
-    expandedDiv.find('.content').animate({top: '50%'}, 400);
+    expandedDiv.css({'height': '50%', 'width': '50%'});
+    expandedDiv.find('.darkOverlay').addClass('overlayHover');
     $('.close').css({'height':'0px', 'width': '0px'});
+    setTimeout(function(){
+      expandedDiv.find('.content').fadeIn(200);
+    },600);
+    //This div is now the previous
     prevExpandedDiv = expandedDiv;
   });
 
+  //=========== Calculate 1rm and fill chart =========
   $('.calculate').click(function() {
     var counter = 0;
     var weight = $('#weight').val();
@@ -128,7 +132,7 @@ $(document).ready(function(){
     }
   });
 
-  //SMOOTH SCROLLING
+  //===== SMOOTH SCROLLING =====
   $('a[href*="#"]').on('click', function(event) {
     if (this.hash !== "") {
       event.preventDefault();
@@ -140,5 +144,4 @@ $(document).ready(function(){
       });
     }
   });
-
 });

@@ -16,7 +16,11 @@
 <body>
 <div class = 'container row'>
   <div class = 'closeContainer'><div class = 'close card-1'><img src = 'icons/close-white.svg'></div></div>
-  <div id = 'tl' class = 'feature oneRM sCol'>
+
+
+  <div class = 'feature oneRM sCol'>
+    <div id = 'tl' class = 'darkOverlay overlayHover'></div>
+
     <div class = 'content'>
       <div class = 'icon'>
         <svg viewBox="0 0 24 24">
@@ -26,8 +30,9 @@
       <h1>One&nbspRep&nbspMax</h1>
       <span>An estimate of the max weight you can rep once</span>
     </div>
-    <div class = 'expandedContent'>
 
+    <div class = 'expandedContent'>
+      <h1>One Rep Max</h1>
       <div class = 'userInput row section card-2'>
         <div class = 'row'><input class = 'Acol-5' id = 'weight' autocomplete = 'off' placeholder = 'weight'><div class = 'for Acol-2'>for</div><input class = 'Acol-5' id = 'reps' autocomplete = 'off' placeholder = 'reps'></div>
         <div class = 'calculate card-1'>Calculate</div>
@@ -59,7 +64,9 @@
     </div>
   </div>
 
-  <div id = 'tr' class = 'feature tdee sCol'>
+  <div class = 'feature tdee sCol'>
+    <div id = 'tr' class = 'darkOverlay overlayHover'></div>
+
     <div class = 'content'>
       <div class = 'icon'>
         <svg viewBox="0 0 24 24">
@@ -69,9 +76,28 @@
       <h1>TDEE</h1>
       <span>How many calories you burn in a day</span>
     </div>
+
+    <div class = 'expandedContent'>
+      <h1>Total Daily Expenditure</h1>
+      <div class = 'userInput row section card-2'>
+
+        <div class = 'row'>
+          <div class = 'col-8'>
+            <h2>Height</h2>
+            <input class = 'Acol-5'><div class = 'Acol-1 ft'>ft.</div><input class ='Acol-5'><div class = 'Acol-1 in'>in.</div>
+          </div>
+          <div class = 'col-4'>
+            <h2>Age</h2>
+            <input class = 'col-12'>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
 
-  <div id = 'bl' class = 'feature lbm sCol'>
+  <div class = 'feature lbm sCol'>
+    <div class = 'darkOverlay overlayHover' id = 'bl'></div>
     <div class = 'content'>
       <div class = 'icon'>
         <svg viewBox="0 0 24 24">
@@ -83,7 +109,8 @@
     </div>
   </div>
 
-  <div id = 'br' class = 'feature thr sCol'>
+  <div class = 'feature thr sCol'>
+    <div id = 'br' class = 'darkOverlay overlayHover'></div>
     <div class = 'content'>
       <div class = 'icon'>
         <svg viewBox="0 0 24 24">
@@ -93,6 +120,8 @@
       <h1>Target&nbspHeart&nbspRate</h1>
       <span>A healthy heart rate during exercise</span>
     </div>
+
+
   </div>
 
 </div>
