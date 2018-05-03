@@ -39,7 +39,11 @@ function isScrollingUp(pos) {
 }
 
 function isMobile(width) {
+  if(width < mobileBreakpoint) return true;
+}
 
+function isTablet(width) {
+  if(width < tabletBreakpoint && width > mobileBreakpoint) return true;
 }
 
 //Returns how far down an element is on page
@@ -117,10 +121,10 @@ $(document).ready(function(){
     var weight = $('#weight').val();
     var reps = $('#reps').val();
     if(!(reps && weight)) {
-      $('.error').fadeIn(400);
+      //$('.error').fadeIn(400);
       expandedDiv.find('input').css('border', '2px solid ' + pink);
       setTimeout(function(){
-          $('.error').stop().fadeOut(400);
+          //$('.error').fadeOut(400);
           expandedDiv.find('input').css('border', 'none');
         },3000);
     }else {
