@@ -5,7 +5,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #141414;
+  background-image: url("textures/greywall.png");
+  background-repeat: repeat;
   width: 100vw;
   height: 100vh; }
 
@@ -151,7 +152,7 @@ body {
     text-align: center;
     z-index: 0;
     padding: 0;
-    transition: height 0.4s ease, width 0.25s 0.4s ease; }
+    transition: height 0.4s ease, width 0.25s 0.4s ease, transform 0.3s ease, box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
     @media only screen and (min-width: 600px) {
       .container .feature {
         height: 50%;
@@ -160,7 +161,7 @@ body {
     .container .feature .content {
       color: white;
       position: absolute;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'proxima-nova', sans-serif;
       top: 50%;
       left: 50%;
       z-index: 1;
@@ -199,6 +200,8 @@ body {
       cursor: pointer; }
       .container .feature .overlayHover:hover, .container .feature .overlayHover .darkOverlay {
         background: rgba(20, 20, 20, 0.4); }
+  .container .clickable {
+    transform: scale(0.95); }
   .container .oneRM {
     background-image: url("textures/funky.png");
     top: 0;
@@ -216,12 +219,12 @@ body {
       max-width: 700px;
       height: auto;
       z-index: 10;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'proxima-nova', sans-serif;
       display: none;
       transition: transform 0.5s ease-in-out; }
       .container .oneRM .expandedContent h1 {
         color: white;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'proxima-nova', sans-serif;
         font-size: 26px; }
       .container .oneRM .expandedContent .section {
         background-color: rgba(40, 40, 40, 0.9);
@@ -268,7 +271,8 @@ body {
           transform: translate(-50%, 50%);
           transition: 0.2s;
           border-radius: 5px;
-          user-select: none; }
+          user-select: none;
+          cursor: pointer; }
           .container .oneRM .expandedContent .userInput .calculate:hover {
             background: linear-gradient(to right, #ff9393 50%, #f9ab76); }
           .container .oneRM .expandedContent .userInput .calculate:active {
@@ -353,9 +357,7 @@ body {
   width: 70px; }
 
 .card-1 {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  cursor: pointer; }
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
 
 .card-1:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
@@ -394,7 +396,9 @@ body {
     background-color: white;
     overflow: hidden;
     transition: height 0.2s ease, width 0.2s ease;
-    pointer-events: auto; }
+    pointer-events: auto;
+    cursor: pointer;
+    transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
     .closeContainer .close img {
       top: 0;
       bottom: 0;

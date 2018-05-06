@@ -15,6 +15,8 @@ var prevExpandedDiv;
 //Coefficients for one rep max
 var maxCoeffecients = [1.0, .943, .906, .881, .856, .831, .807, .786, .765, .744, .723, .703, .688, .675, .662, .650, .638, .627, .616, .606];
 
+var fadeinTimer;
+
 //=== FUCTIONALITY ===
 function getRepMaxes(weight, reps) {
   var results = [];
@@ -86,19 +88,24 @@ $(document).ready(function(){
   //============== Expanding a feature ================
   $('.feature').click(function(){
     expandedDiv = $(this);
-    //Put old overlay behind new one if it exists
-    if(prevExpandedDiv) prevExpandedDiv.css('z-index', '2');
-    //Expand Div
-    expandedDiv.css({'height': '100%', 'width':'100%', 'z-index': '3'});
-    expandedDiv.find('.content').fadeOut(200);
-    expandedDiv.find('.darkOverlay').removeClass('overlayHover');
-    //Color exit button
-    $('.close').css('background', 'linear-gradient(to top right, ' + pink + ' 40%, ' + orange + ')');
-    setTimeout(function(){
-      $('.close').css({'height':'45px', 'width':'45px'});
-      $(expandedDiv).find('.expandedContent').fadeIn(400);
-      $(expandedDiv).find('.expandedContent').css('transform', 'translate(50%, 50%)');
-    },600);
+    if(expandedDiv.hasClass('clickable')) {
+      //Stop fadein of content if double clicked
+      clearTimeout(fadeinTimer);
+      //Put old overlay behind new one if it exists
+      if(prevExpandedDiv) prevExpandedDiv.css('z-index', '2');
+      //Expand Div
+      expandedDiv.css({'height': '100%', 'width':'100%', 'z-index': '3'});
+      expandedDiv.find('.content').fadeOut(200);
+      expandedDiv.find('.darkOverlay').removeClass('overlayHover');
+      expandedDiv.removeClass('clickable');
+      //Color exit button
+      $('.close').css('background', 'linear-gradient(to top right, ' + pink + ' 40%, ' + orange + ')');
+      setTimeout(function(){
+        $('.close').css({'height':'45px', 'width':'45px'});
+        $(expandedDiv).find('.expandedContent').fadeIn(400);
+        $(expandedDiv).find('.expandedContent').css('transform', 'translate(50%, 50%)');
+      },600);
+    }
   });
 
   //============== Closing a feature ================
@@ -107,8 +114,9 @@ $(document).ready(function(){
     $('.expandedContent').css('transform', 'translate(50%, 55%)');
     expandedDiv.css({'height': '50%', 'width': '50%'});
     expandedDiv.find('.darkOverlay').addClass('overlayHover');
+    expandedDiv.addClass('clickable');
     $('.close').css({'height':'0px', 'width': '0px'});
-    setTimeout(function(){
+    fadeinTimer = setTimeout(function(){
       expandedDiv.find('.content').fadeIn(200);
     },600);
     //This div is now the previous
