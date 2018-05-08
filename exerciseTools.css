@@ -8,10 +8,14 @@
   /* Opera/IE 8+ */
   font-family: fresno, sans-serif; }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  display: none; }
+
 body {
   margin: 0;
   padding: 0;
-  background-image: url("textures/greyWall.png");
+  background-image: url("textures/wild_oliva.png");
   background-repeat: repeat;
   width: 100vw;
   height: 100vh; }
@@ -291,13 +295,16 @@ body {
       bottom: 0;
       left: 50%;
       transform: translate(-50%, 50%);
-      transition: 0.2s;
+      transition: 0.2s ease;
       user-select: none;
       cursor: pointer; }
       .container .expandedContent .calculate:hover {
-        background: linear-gradient(to right, #ff9393 50%, #f9ab76); }
+        background: linear-gradient(to right, #ff9393 50%, #f9ab76);
+        width: 32%; }
       .container .expandedContent .calculate:active {
-        background: linear-gradient(to right, #ffaeae 50%, #fac098); }
+        background: linear-gradient(to right, #ffaeae 50%, #fac098);
+        width: 29%;
+        color: #d2d2d2; }
     .container .expandedContent .calculateError {
       border: 2px solid #ff7979; }
     .container .expandedContent .userOutput {
@@ -433,15 +440,58 @@ body {
       background-color: rgba(75, 75, 75, 0.7);
       width: 66.7%;
       vertical-align: middle; }
-  .container .thr {
+  .container .bmi {
     background-image: url("textures/colorSquares.png");
     background-repeat: repeat;
     bottom: 0;
     right: 0; }
     @media only screen and (min-width: 600px) {
-      .container .thr {
+      .container .bmi {
         background-image: url("images/cardio-min.jpg");
         background-repeat: no-repeat; } }
+    .container .bmi .userInput {
+      padding-bottom: 25px; }
+    .container .bmi .headerContainer {
+      display: table;
+      width: 100%; }
+    .container .bmi h2 {
+      width: 50%;
+      display: table-cell;
+      vertical-align: middle; }
+    .container .bmi .inputRow {
+      width: 100%;
+      display: table; }
+    .container .bmi .inputWrapper {
+      width: 25%;
+      display: table-cell;
+      padding: 5px; }
+    .container .bmi .inputwrapperOutput {
+      width: 50%;
+      display: table-cell;
+      padding: 5px; }
+    .container .bmi input {
+      height: 35px;
+      width: 100%;
+      vertical-align: middle; }
+    .container .bmi .userOutput {
+      padding: 5px; }
+    .container .bmi .resultsRow {
+      display: table;
+      width: 100%;
+      height: 35px;
+      color: white;
+      font-family: 'fresno', sans-serif;
+      overflow: hidden; }
+    .container .bmi .label {
+      display: table-cell;
+      width: 33.3%;
+      vertical-align: middle;
+      background-color: rgba(110, 110, 110, 0.8); }
+    .container .bmi .output {
+      display: table-cell;
+      background-color: rgba(75, 75, 75, 0.7);
+      width: 66.7%;
+      vertical-align: middle; }
   .container .expanded {
     height: 100%;
     width: 100%;
@@ -492,7 +542,7 @@ body {
     transition: height 0.2s ease, width 0.2s ease;
     pointer-events: auto;
     cursor: pointer;
-    transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+    transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), height 0.2s ease, width 0.2s ease; }
     .closeContainer .close img {
       top: 0;
       bottom: 0;

@@ -8,6 +8,12 @@ var green = '#6CAB19';
 var yellow = '#CEE24A';
 var red = '#e04141';
 var greyRed = '#992f2f';
+var blue = '#4298f4';
+var blueDark = '#3469a3';
+
+var _weight;
+var _height;
+
 
 var fadeinTimer; //Timer for animations
 var mobileBreakpoint = 600;
@@ -40,6 +46,66 @@ function getLBM(weight, bodyFat) {
   return result;
 }
 
+function getBMR(feet, inches, weight, age){
+  var height = (feet * 12) + inches;
+  var BMR = 66 + (6.2 * weight) + (12.7 * height) - (6.76 * age);
+  return BMR;
+}
+
+function getBMI(feet, inches, weight) {
+  var inches = (feet * 12) + inches;
+  var result = (703) * (weight/(Math.pow(inches, 2)));
+  result = result.toFixed(1);
+  return result;
+}
+function generateOutput(feature){
+  var theID = feature.find('.calculate').attr('id');
+  var counter = 0;
+
+  if(theID == 'calculateOneRM') {
+    var weight = $('#weight').val();
+    var reps = $('#reps').val();
+    var maxes = getRepMaxes(weight, reps);
+    $('#oneRepMaxOutput > #max').each(function() {
+      $(this).html(maxes[counter]);
+      counter++;
+    });
+
+  }else if (theID == 'calculateTDE') {
+    var inches = $('#TDEinchesInput').val();
+    inches = parseInt(inches);
+    var feet = $('#TDEfeetInput').val();;
+    feet = parseInt(feet);
+    var weight = $('#TDEweightInput').val();
+    weight = parseInt(weight);
+    var age = $('#TDEageInput').val();
+    age = parseInt(age);
+    var BMR = getBMR(feet, inches, weight, age);
+    BMR = Math.floor(BMR);
+    $('#BMRoutput').html(BMR);
+
+
+  }else if (theID == 'calculateLBM') {
+    var weight = $('#LBMweightInput').val();
+    var bodyfat = $('#LBMbodyFatInput').val();
+    var LBM = getLBM(weight, bodyfat);
+    $('#LBMoutput').find('.output').html(LBM);
+
+
+
+  }else if (theID == 'calculateBMI') {
+    var feet = $('#BMIfeetInput').val();
+    feet = parseInt(feet);
+    var inches = $('#BMIinchesInput').val();
+    inches = parseInt(inches);
+    var weight = $('#BMIweightInput').val();
+    weight = parseInt(weight);
+    var BMI = getBMI(feet, inches, weight);
+    $('#BMIoutput').html(BMI);
+
+  }
+}
+
 //Determines scroll direction
 function isScrollingUp(pos) {
   if(lastScrollPosition > pos) {
@@ -64,9 +130,9 @@ function updateButtonColors(element) {
   }else if ((element).hasClass('lbm')) {
     closeButton.css('background', 'linear-gradient(to top right, ' + red + ', ' + greyRed + ')');
     calculateButton.css('background', 'linear-gradient(to right, ' + red + ', ' + greyRed + ')');
-  }else if ((element).hasClass('thr')) {
-    closeButton.css('background', 'linear-gradient(to top right, ' + pink + ' 40%, ' + orange + ')');
-    calculateButton.css('background', 'linear-gradient(to right, ' + pink + ' 40%, ' + orange + ')');
+  }else if ((element).hasClass('bmi')) {
+    closeButton.css('background', 'linear-gradient(to top right, ' + blue + ' 40%, ' + blueDark + ')');
+    calculateButton.css('background', 'linear-gradient(to right, ' + blue + ' 40%, ' + blueDark + ')');
   }
 }
 
@@ -156,22 +222,24 @@ $(document).ready(function(){
 
   //=========== Calculate 1rm and fill chart =========
   $('.calculate').click(function() {
-    var counter = 0;
-    var weight = $('#weight').val();
-    var reps = $('#reps').val();
-    if(!(reps && weight)) {
-      //$('.error').fadeIn(400);
-      expandedDiv.find('input').addClass('calculateError');
-      setTimeout(function(){
-          expandedDiv.find('input').removeClass('calculateError');
-        },3000);
-    }else {
-      var maxes = getRepMaxes(weight, reps);
-      $('#oneRepMaxOutput > #max').each(function() {
-        $(this).html(maxes[counter]);
-        counter++;
-      });
-    }
+    generateOutput(expandedDiv);
+
+    // console.log(generateOutput(expandedDiv));
+    // var weight = $('#weight').val();
+    // var reps = $('#reps').val();
+    // if(!(reps && weight)) {
+    //   //$('.error').fadeIn(400);
+    //   expandedDiv.find('input').addClass('calculateError');
+    //   setTimeout(function(){
+    //       expandedDiv.find('input').removeClass('calculateError');
+    //     },3000);
+    // }else {
+    //   var maxes = getRepMaxes(weight, reps);
+    //   $('#oneRepMaxOutput > #max').each(function() {
+    //     $(this).html(maxes[counter]);
+    //     counter++;
+    //   });
+    // }
   });
 
   //===== SMOOTH SCROLLING =====

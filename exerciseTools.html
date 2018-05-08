@@ -35,7 +35,7 @@
       <h1>One Rep Max</h1>
       <div class = 'userInput row section card-2'>
         <input class = 'Acol-5' id = 'weight' autocomplete = 'off' placeholder = 'weight'><div class = 'for Acol-2'>for</div><input class = 'Acol-5' id = 'reps' autocomplete = 'off' placeholder = 'reps'>
-        <div class = 'calculate card-1'>Calculate</div>
+        <div id = 'calculateOneRM' class = 'calculate card-1'>Calculate</div>
       </div>
       <div id  = 'oneRepMaxOutput' class = 'userOutput row section card-2'>
         <div class = 'scrolldown'><img src = 'icons/more.svg'></div>
@@ -74,30 +74,30 @@
           <path fill="white" d="M11.71,19C9.93,19 8.5,17.59 8.5,15.86C8.5,14.24 9.53,13.1 11.3,12.74C13.07,12.38 14.9,11.53 15.92,10.16C16.31,11.45 16.5,12.81 16.5,14.2C16.5,16.84 14.36,19 11.71,19M13.5,0.67C13.5,0.67 14.24,3.32 14.24,5.47C14.24,7.53 12.89,9.2 10.83,9.2C8.76,9.2 7.2,7.53 7.2,5.47L7.23,5.1C5.21,7.5 4,10.61 4,14A8,8 0 0,0 12,22A8,8 0 0,0 20,14C20,8.6 17.41,3.8 13.5,0.67Z" />
         </svg>
       </div>
-      <h1>TDEE</h1>
+      <h1>BMR</h1>
       <span>How many calories you burn in a day</span>
     </div>
 
     <div class = 'expandedContent'>
-      <h1>Total Daily Expenditure</h1>
+      <h1>Basic Metabolic Rate</h1>
       <div class = 'userInput row section card-2'>
         <div class = 'Acol-4'>
           <h2>Height</h2>
-          <div class = 'heightInputWrapper'><input placeholder = 'ft.'></div><div class = 'heightInputWrapper'><input placeholder = 'in.'></div>
+          <div class = 'heightInputWrapper'><input id = 'TDEfeetInput' type = 'number' placeholder = 'ft.'></div><div class = 'heightInputWrapper'><input id = 'TDEinchesInput' type = 'number' placeholder = 'in.'></div>
         </div>
         <div class = 'Acol-4'>
           <h2>Weight</h2>
-          <input placeholder = 'lbs' class = 'col-12'>
+          <input id = 'TDEweightInput' type = 'number' placeholder = 'lbs' class = 'col-12'>
         </div>
         <div class = 'Acol-4'>
           <h2>Age</h2>
-          <input placeholder = 'yrs' class = 'col-12'>
+          <input id = 'TDEageInput' type = 'number' placeholder = 'yrs' class = 'col-12'>
         </div>
-        <div class = 'calculate card-1'>Calculate</div>
+        <div id = 'calculateTDE' class = 'calculate card-1'>Calculate</div>
       </div>
 
       <div class = 'userOutput row section card-2'>
-        <div class = 'cals Acol-4'>cals</div><div id = 'calsBurnt' class = 'calsBurnt Acol-8'></div>
+        <div class = 'cals Acol-4'>cals</div><div id = 'BMRoutput' class = 'calsBurnt Acol-8'></div>
       </div>
     </div>
   </div>
@@ -123,12 +123,12 @@
           <h2>Weight</h2><h2>Bodyfat</h2>
         </div>
         <div class = 'inputRow row'>
-          <div class = 'inputWrapper'><input placeholder = 'pounds'></div><div class = 'inputWrapper'><input placeholder = 'percent'></div>
+          <div class = 'inputWrapper'><input id = 'LBMweightInput' placeholder = 'pounds'></div><div class = 'inputWrapper'><input id = 'LBMbodyFatInput'placeholder = 'percent'></div>
         </div>
-        <div class = 'calculate card-1'>Calculate</div>
+        <div  id = 'calculateLBM' class = 'calculate card-1'>Calculate</div>
       </div>
 
-      <div class = 'userOutput row section card-2'>
+      <div id = 'LBMoutput' class = 'userOutput row section card-2'>
         <div class = 'resultsRow'><div class = 'label'>LBM</div><div class = 'output'></div></div>
       </div>
     </div>
@@ -136,7 +136,7 @@
   <!--================================-->
 
   <!--========== TARGET HEART RATE ==========-->
-  <div class = 'feature thr sCol clickable card-1'>
+  <div class = 'feature bmi sCol clickable card-1'>
     <div id = 'br' class = 'darkOverlay overlayHover'></div>
     <div class = 'content'>
       <div class = 'icon'>
@@ -144,8 +144,32 @@
           <path fill="white" d="M7.5,4A5.5,5.5 0 0,0 2,9.5C2,10 2.09,10.5 2.22,11H6.3L7.57,7.63C7.87,6.83 9.05,6.75 9.43,7.63L11.5,13L12.09,11.58C12.22,11.25 12.57,11 13,11H21.78C21.91,10.5 22,10 22,9.5A5.5,5.5 0 0,0 16.5,4C14.64,4 13,4.93 12,6.34C11,4.93 9.36,4 7.5,4V4M3,12.5A1,1 0 0,0 2,13.5A1,1 0 0,0 3,14.5H5.44L11,20C12,20.9 12,20.9 13,20L18.56,14.5H21A1,1 0 0,0 22,13.5A1,1 0 0,0 21,12.5H13.4L12.47,14.8C12.07,15.81 10.92,15.67 10.55,14.83L8.5,9.5L7.54,11.83C7.39,12.21 7.05,12.5 6.6,12.5H3Z" />
         </svg>
       </div>
-      <h1>Target&nbspHeart&nbspRate</h1>
-      <span>A healthy heart rate during exercise</span>
+      <h1>Body Mass Index</h1>
+      <span>A measurement of a person's leanness</span>
+    </div>
+    <div class = 'expandedContent section row col-2'>
+      <h1>Body Mass Index</h1>
+      <div class = 'userInput row section card-2'>
+        <div class ='headerContainer'>
+          <h2> Height</h2><h2>Weight</h2>
+        </div>
+
+        <div class = 'inputRow'>
+          <div class = 'inputWrapper'>
+            <input type = 'number' id = 'BMIfeetInput' placeholder = 'ft.'>
+          </div>
+          <div class = 'inputWrapper'>
+            <input type = 'number' id = 'BMIinchesInput' placeholder = 'in'>
+          </div>
+          <div class = 'inputwrapperOutput'>
+            <input type = 'number' id = 'BMIweightInput' placeholder = 'lbs'>
+          </div>
+        </div>
+        <div id = 'calculateBMI' class = 'calculate card-1'>Calculate</div>
+      </div>
+      <div class = 'userOutput row section card-2'>
+        <div class = 'resultsRow'><div class = 'label'>BMI</div><div id = 'BMIoutput' class = 'output'></div></div>
+      </div>
     </div>
   </div>
   <!--================================-->
