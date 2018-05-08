@@ -4,7 +4,12 @@ var pink = '#ff7979';
 var lightPink = '#ff9393';
 var orange = '#f89654';
 var lightOrange = '#f9ab76'
+var green = '#6CAB19';
+var yellow = '#CEE24A';
+var red = '#e04141';
+var greyRed = '#992f2f';
 
+var fadeinTimer; //Timer for animations
 var mobileBreakpoint = 600;
 var tabletBreakpoint = 768;
 //Tracking scroll position
@@ -15,7 +20,6 @@ var prevExpandedDiv;
 //Coefficients for one rep max
 var maxCoeffecients = [1.0, .943, .906, .881, .856, .831, .807, .786, .765, .744, .723, .703, .688, .675, .662, .650, .638, .627, .616, .606];
 
-var fadeinTimer;
 
 //=== FUCTIONALITY ===
 function getRepMaxes(weight, reps) {
@@ -29,6 +33,13 @@ function getRepMaxes(weight, reps) {
   return results;
 }
 
+function getLBM(weight, bodyFat) {
+  var result = weight * (bodyFat/100);
+  result = weight - result;
+  result = Math.floor(result);
+  return result;
+}
+
 //Determines scroll direction
 function isScrollingUp(pos) {
   if(lastScrollPosition > pos) {
@@ -37,6 +48,25 @@ function isScrollingUp(pos) {
   }else{
     lastScrollPosition = pos;
     return false;
+  }
+}
+
+//Changes accent colors of expanded features
+function updateButtonColors(element) {
+  var closeButton = $('.close');
+  var calculateButton = $('.calculate');
+  if((element).hasClass('oneRM')) {
+    closeButton.css('background', 'linear-gradient(to top right, ' + pink + ' 40%, ' + orange + ')');
+    calculateButton.css('background', 'linear-gradient(to right, ' + pink + ' 40%, ' + orange + ')');
+  }else if ((element).hasClass('tdee')) {
+    closeButton.css('background', 'linear-gradient(to top right, ' + green + ' 40%, ' + yellow + ')');
+    calculateButton.css('background', 'linear-gradient(to right, ' + green + ' 40%, ' + yellow + ')');
+  }else if ((element).hasClass('lbm')) {
+    closeButton.css('background', 'linear-gradient(to top right, ' + red + ', ' + greyRed + ')');
+    calculateButton.css('background', 'linear-gradient(to right, ' + red + ', ' + greyRed + ')');
+  }else if ((element).hasClass('thr')) {
+    closeButton.css('background', 'linear-gradient(to top right, ' + pink + ' 40%, ' + orange + ')');
+    calculateButton.css('background', 'linear-gradient(to right, ' + pink + ' 40%, ' + orange + ')');
   }
 }
 
@@ -71,12 +101,12 @@ $(document).ready(function(){
   });
 
   //========Show/hide scroll arrow on 1rm output=======
-  $('.output').scroll(function() {
+  $('.userOutput').scroll(function() {
     var outputPosition = $(this).scrollTop();
     if(outputPosition > 40 ) {
-      $('.output').find('.scrolldown').fadeOut('fast')
+      $(this).find('.scrolldown').fadeOut('fast')
     }else {
-      $('.output').find('.scrolldown').fadeIn('fast')
+      $(this).find('.scrolldown').fadeIn('fast')
     }
   });
 
@@ -88,6 +118,7 @@ $(document).ready(function(){
   //============== Expanding a feature ================
   $('.feature').click(function(){
     expandedDiv = $(this);
+    updateButtonColors(expandedDiv);
     if(expandedDiv.hasClass('clickable')) {
       //Stop fadein of content if double clicked
       clearTimeout(fadeinTimer);
@@ -99,13 +130,13 @@ $(document).ready(function(){
       expandedDiv.find('.darkOverlay').removeClass('overlayHover');
       expandedDiv.removeClass('clickable');
       //Color exit button
-      $('.close').css('background', 'linear-gradient(to top right, ' + pink + ' 40%, ' + orange + ')');
       setTimeout(function(){
         $('.close').css({'height':'45px', 'width':'45px'});
         $(expandedDiv).find('.expandedContent').fadeIn(400);
         $(expandedDiv).find('.expandedContent').css('transform', 'translate(50%, 50%)');
       },600);
     }
+
   });
 
   //============== Closing a feature ================
@@ -130,10 +161,9 @@ $(document).ready(function(){
     var reps = $('#reps').val();
     if(!(reps && weight)) {
       //$('.error').fadeIn(400);
-      expandedDiv.find('input').css('border', '2px solid ' + pink);
+      expandedDiv.find('input').addClass('calculateError');
       setTimeout(function(){
-          //$('.error').fadeOut(400);
-          expandedDiv.find('input').css('border', 'none');
+          expandedDiv.find('input').removeClass('calculateError');
         },3000);
     }else {
       var maxes = getRepMaxes(weight, reps);

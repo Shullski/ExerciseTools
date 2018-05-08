@@ -1,11 +1,17 @@
 /* Responsive Design */
 * {
-  box-sizing: border-box; }
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  font-family: fresno, sans-serif; }
 
 body {
   margin: 0;
   padding: 0;
-  background-image: url("textures/greywall.png");
+  background-image: url("textures/greyWall.png");
   background-repeat: repeat;
   width: 100vw;
   height: 100vh; }
@@ -143,8 +149,9 @@ body {
   .container .feature {
     position: absolute;
     overflow: hidden;
-    height: 25%;
-    width: 100%;
+    height: 50%;
+    width: 50%;
+    position: absolute;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -161,7 +168,7 @@ body {
     .container .feature .content {
       color: white;
       position: absolute;
-      font-family: 'proxima-nova', sans-serif;
+      font-family: fresno, sans-serif;
       top: 50%;
       left: 50%;
       z-index: 1;
@@ -177,16 +184,30 @@ body {
         left: 0;
         bottom: 0;
         margin: 0 auto;
-        height: 60px;
-        width: 60px;
+        height: 20%;
+        width: 20%;
         transition: 0.2s ease; }
       .container .feature .content h1 {
-        font-size: 2.2vw;
+        font-size: 16px;
         text-align: center;
         margin-top: 10px;
         margin-bottom: 5px; }
+        @media only screen and (min-width: 600px) {
+          .container .feature .content h1 {
+            font-size: 20px; } }
+        @media only screen and (min-width: 768px) {
+          .container .feature .content h1 {
+            font-size: 24px; } }
       .container .feature .content span {
-        color: rgba(245, 245, 245, 0.7); }
+        color: rgba(245, 245, 245, 0.85);
+        font-family: 'proxima-nova', sans-serif;
+        font-size: 12px; }
+        @media only screen and (min-width: 600px) {
+          .container .feature .content span {
+            font-size: 14px; } }
+        @media only screen and (min-width: 768px) {
+          .container .feature .content span {
+            font-size: 16px; } }
     .container .feature .darkOverlay {
       position: absolute;
       height: 100%;
@@ -202,159 +223,233 @@ body {
         background: rgba(20, 20, 20, 0.4); }
   .container .clickable {
     transform: scale(0.95); }
-  .container .oneRM {
-    background-image: url("textures/funky.png");
+  .container .mobileExpanded {
     top: 0;
-    left: 0; }
+    transition: top 0.2s; }
+  .container .expandedContent {
+    box-sizing: border-box;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 55%);
+    position: absolute;
+    height: auto;
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    z-index: 10;
+    font-family: fresno, sans-serif;
+    display: none;
+    transition: transform 0.5s ease-in-out;
+    background-color: rgba(15, 15, 15, 0.9);
+    padding-bottom: 20px; }
+    .container .expandedContent h1 {
+      color: white;
+      font-family: fresno, sans-serif;
+      font-size: 26px; }
+    .container .expandedContent h2 {
+      color: white;
+      font-family: fresno, sans-serif;
+      font-size: 16px;
+      margin-top: 0;
+      margin-bottom: 5px; }
+    .container .expandedContent .section {
+      background-color: rgba(40, 40, 40, 0.9);
+      width: 100%; }
+    .container .expandedContent .userInput {
+      width: 90%;
+      margin: 0 auto;
+      padding: 10px;
+      padding-bottom: 15px;
+      margin-bottom: 40px;
+      position: relative; }
+    .container .expandedContent input {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bolder;
+      background-color: rgba(110, 110, 110, 0.8);
+      border: none;
+      color: white;
+      font-size: 12px;
+      border: 2px solid transparent;
+      overflow: visible; }
+      .container .expandedContent input::placeholder {
+        color: #bebebe; }
+      .container .expandedContent input:focus {
+        outline: none;
+        border: 2px solid white;
+        transition: border 0.2s ease; }
+    .container .expandedContent .calculate {
+      padding: 10px 0 10px 0;
+      width: 30%;
+      background: linear-gradient(to right, #ff7979 50%, #f89654);
+      text-transform: uppercase;
+      font-size: 18px;
+      letter-spacing: 1px;
+      text-align: center;
+      color: white;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      transition: 0.2s;
+      user-select: none;
+      cursor: pointer; }
+      .container .expandedContent .calculate:hover {
+        background: linear-gradient(to right, #ff9393 50%, #f9ab76); }
+      .container .expandedContent .calculate:active {
+        background: linear-gradient(to right, #ffaeae 50%, #fac098); }
+    .container .expandedContent .calculateError {
+      border: 2px solid #ff7979; }
+    .container .expandedContent .userOutput {
+      position: relative;
+      max-height: 30vh;
+      width: 80%;
+      margin: auto; }
+      .container .expandedContent .userOutput .scrolldown {
+        position: fixed;
+        height: 24px;
+        width: 24px;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(to right, #ff7979 50%, #f89654); }
+        .container .expandedContent .userOutput .scrolldown img {
+          max-height: 100%;
+          max-width: 100%; }
+  .container .oneRM {
+    background-image: url("textures/colorSquares.png");
+    background-repeat: repeat;
+    top: 0;
+    left: 0;
+    /* width */
+    /* Track */
+    /* Handle */
+    /* Handle on hover */ }
     @media only screen and (min-width: 600px) {
       .container .oneRM {
         background-image: url("images/deadlift-min.jpg"); } }
-    .container .oneRM .expandedContent {
-      bottom: 50%;
-      right: 50%;
-      transform: translate(50%, 55%);
-      position: absolute;
-      height: auto;
-      width: 100%;
-      max-width: 700px;
-      height: auto;
-      z-index: 10;
-      font-family: 'proxima-nova', sans-serif;
-      display: none;
-      transition: transform 0.5s ease-in-out; }
-      .container .oneRM .expandedContent h1 {
-        color: white;
-        font-family: 'proxima-nova', sans-serif;
-        font-size: 26px; }
-      .container .oneRM .expandedContent .section {
-        background-color: rgba(40, 40, 40, 0.9);
-        width: 100%; }
-      .container .oneRM .expandedContent .error {
-        padding: 30px 30px 30px 30px;
-        z-index: 20;
-        background: linear-gradient(to right, #ff7979 50%, #f89654);
-        color: white;
-        font-weight: bolder;
-        font-size: 18px;
-        text-transform: uppercase;
-        position: absolute;
-        height: auto;
-        width: auto;
-        top: 50%;
-        left: 50%;
-        display: none;
-        transform: translate(-50%, -50%);
-        border-radius: 10px; }
-      .container .oneRM .expandedContent .userInput {
-        width: 90%;
-        margin: 0 auto;
-        padding: 10px;
-        margin-bottom: 40px;
-        border-radius: 10px;
-        position: relative; }
-        .container .oneRM .expandedContent .userInput .for {
-          color: white;
-          text-transform: uppercase; }
-        .container .oneRM .expandedContent .userInput .row {
-          margin-bottom: 25px; }
-        .container .oneRM .expandedContent .userInput .calculate {
-          padding: 10px 0 10px 0;
-          width: 30%;
-          background: linear-gradient(to right, #ff7979 50%, #f89654);
-          text-transform: uppercase;
-          font-size: 14px;
-          text-align: center;
-          color: white;
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          transform: translate(-50%, 50%);
-          transition: 0.2s;
-          border-radius: 5px;
-          user-select: none;
-          cursor: pointer; }
-          .container .oneRM .expandedContent .userInput .calculate:hover {
-            background: linear-gradient(to right, #ff9393 50%, #f9ab76); }
-          .container .oneRM .expandedContent .userInput .calculate:active {
-            background: linear-gradient(to right, #ffaeae 50%, #fac098); }
-      .container .oneRM .expandedContent input {
-        height: 50px;
-        text-align: center;
-        text-transform: uppercase;
-        font-weight: bolder;
-        background-color: rgba(110, 110, 110, 0.8);
-        border: none;
-        border-radius: 5px;
-        color: white;
-        font-size: 14px; }
-        .container .oneRM .expandedContent input::placeholder {
-          color: #bebebe; }
-        .container .oneRM .expandedContent input:focus {
-          outline: none;
-          border: 1px solid white; }
-      .container .oneRM .expandedContent .output {
-        position: relative;
-        max-height: 40vh;
-        width: 80%;
-        margin: auto;
-        overflow-y: scroll; }
-        .container .oneRM .expandedContent .output .scrolldown {
-          position: fixed;
-          height: 24px;
-          width: 24px;
-          bottom: 5px;
-          left: 50%;
-          transform: translateX(-50%);
-          border-radius: 50%;
-          background: linear-gradient(to right, #ff7979 50%, #f89654); }
-          .container .oneRM .expandedContent .output .scrolldown img {
-            max-height: 100%;
-            max-width: 100%; }
-        .container .oneRM .expandedContent .output div {
-          margin-bottom: 10px; }
-        .container .oneRM .expandedContent .output:last-child {
-          margin-bottom: 0px; }
-        .container .oneRM .expandedContent .output .repNumber {
-          background-color: rgba(110, 110, 110, 0.8);
-          height: 45px;
-          font-size: 14px;
-          text-transform: uppercase;
-          color: #c8c8c8; }
-        .container .oneRM .expandedContent .output .repMax {
-          background-color: rgba(75, 75, 75, 0.7);
-          height: 45px;
-          color: white; }
+    .container .oneRM .for {
+      color: white;
+      text-transform: uppercase;
+      font-size: 12px;
+      text-align: center;
+      padding: 0;
+      padding-top: 15px;
+      padding-bottom: 15px; }
+    .container .oneRM .userInput {
+      padding-bottom: 30px; }
+    .container .oneRM .userOutput {
+      overflow-y: scroll; }
+    .container .oneRM .repNumber {
+      background-color: rgba(110, 110, 110, 0.8);
+      height: 45px;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: #c8c8c8;
+      margin-bottom: 10px; }
+    .container .oneRM .repMax {
+      background-color: rgba(75, 75, 75, 0.7);
+      height: 45px;
+      color: white;
+      margin-bottom: 10px; }
+    .container .oneRM .userOutput::-webkit-scrollbar {
+      width: 5px; }
+    .container .oneRM .userOutput::-webkit-scrollbar-track {
+      background: rgba(40, 40, 40, 0.9); }
+    .container .oneRM .userOutput::-webkit-scrollbar-thumb {
+      background: #ff9393; }
+    .container .oneRM .userOutput::-webkit-scrollbar-thumb:hover {
+      background: #ffaeae; }
   .container .tdee {
-    background-image: url("textures/funky.png");
-    top: 25%; }
+    background-image: url("textures/colorSquares.png");
+    top: 0;
+    right: 0; }
     @media only screen and (min-width: 600px) {
       .container .tdee {
-        top: 0;
-        right: 0;
         background-image: url("images/food-min.jpg"); } }
+    .container .tdee .userInput {
+      padding-bottom: 15px; }
+    .container .tdee .userOutput {
+      padding: 0px; }
+    .container .tdee .heightInputWrapper {
+      padding: 2px;
+      width: 50%;
+      display: inline-block; }
+    .container .tdee input {
+      width: 100%;
+      padding: 15px; }
+    .container .tdee .cals {
+      background-color: rgba(110, 110, 110, 0.8);
+      height: 45px;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: #c8c8c8; }
+    .container .tdee .calsBurnt {
+      background-color: rgba(75, 75, 75, 0.7);
+      height: 45px;
+      color: white; }
   .container .lbm {
-    background-image: url("textures/funky.png");
-    bottom: 25%; }
+    background-image: url("textures/colorSquares.png");
+    bottom: 0;
+    left: 0; }
     @media only screen and (min-width: 600px) {
       .container .lbm {
-        bottom: 0;
-        left: 0;
         background-image: url("images/shredded-min.jpg"); } }
+    .container .lbm .userInput {
+      padding-bottom: 25px; }
+    .container .lbm .headerContainer {
+      display: table;
+      width: 100%; }
+    .container .lbm h2 {
+      width: 50%;
+      display: table-cell;
+      vertical-align: middle; }
+    .container .lbm .inputRow {
+      width: 100%; }
+    .container .lbm .inputWrapper {
+      width: 50%;
+      display: inline-block;
+      padding: 5px; }
+    .container .lbm input {
+      height: 35px;
+      width: 100%;
+      vertical-align: middle; }
+    .container .lbm .userOutput {
+      padding: 5px; }
+    .container .lbm .resultsRow {
+      display: table;
+      width: 100%;
+      height: 35px;
+      color: white;
+      font-family: 'fresno', sans-serif;
+      overflow: hidden; }
+    .container .lbm .label {
+      display: table-cell;
+      width: 33.3%;
+      vertical-align: middle;
+      background-color: rgba(110, 110, 110, 0.8); }
+    .container .lbm .output {
+      display: table-cell;
+      background-color: rgba(75, 75, 75, 0.7);
+      width: 66.7%;
+      vertical-align: middle; }
   .container .thr {
-    background-image: url("textures/funky.png");
-    bottom: 0; }
+    background-image: url("textures/colorSquares.png");
+    background-repeat: repeat;
+    bottom: 0;
+    right: 0; }
     @media only screen and (min-width: 600px) {
       .container .thr {
-        right: 0;
-        background-image: url("images/cardio-min.jpg"); } }
+        background-image: url("images/cardio-min.jpg");
+        background-repeat: no-repeat; } }
   .container .expanded {
     height: 100%;
     width: 100%;
     cursor: auto; }
 
 .feature:hover .content .icon {
-  height: 70px;
-  width: 70px; }
+  height: 25%;
+  width: 25%; }
 
 .card-1 {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
@@ -392,7 +487,6 @@ body {
     margin: auto;
     height: 0px;
     width: 0px;
-    border-radius: 50%;
     background-color: white;
     overflow: hidden;
     transition: height 0.2s ease, width 0.2s ease;
@@ -406,21 +500,5 @@ body {
       left: 0;
       margin: auto;
       position: absolute; }
-
-/* width */
-.output::-webkit-scrollbar {
-  width: 5px; }
-
-/* Track */
-.output::-webkit-scrollbar-track {
-  background: rgba(40, 40, 40, 0.9); }
-
-/* Handle */
-.output::-webkit-scrollbar-thumb {
-  background: #ff9393; }
-
-/* Handle on hover */
-.output::-webkit-scrollbar-thumb:hover {
-  background: #ffaeae; }
 
 /*# sourceMappingURL=exerciseTools.css.map */

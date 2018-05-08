@@ -10,14 +10,14 @@
   <link rel="stylesheet" href="https://use.typekit.net/mpm5srh.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src = "exerciseTools.js"></script>
-  <link rel="stylesheet" href="https://use.typekit.net/bxn0dyo.css">
+  <link rel="stylesheet" href="https://use.typekit.net/mpm5srh.css">
 </head>
 
 <body>
 <div class = 'container row'>
   <div class = 'closeContainer'><div class = 'close card-1'><img src = 'icons/close-white.svg'></div></div>
 
-
+  <!--========== ONE REP MAX ==========-->
   <div class = 'feature oneRM sCol clickable card-1'>
     <div id = 'tl' class = 'darkOverlay overlayHover'></div>
 
@@ -34,10 +34,10 @@
     <div class = 'expandedContent'>
       <h1>One Rep Max</h1>
       <div class = 'userInput row section card-2'>
-        <div class = 'row'><input class = 'Acol-5' id = 'weight' autocomplete = 'off' placeholder = 'weight'><div class = 'for Acol-2'>for</div><input class = 'Acol-5' id = 'reps' autocomplete = 'off' placeholder = 'reps'></div>
+        <input class = 'Acol-5' id = 'weight' autocomplete = 'off' placeholder = 'weight'><div class = 'for Acol-2'>for</div><input class = 'Acol-5' id = 'reps' autocomplete = 'off' placeholder = 'reps'>
         <div class = 'calculate card-1'>Calculate</div>
       </div>
-      <div id  = 'oneRepMaxOutput' class = 'output row section card-2'>
+      <div id  = 'oneRepMaxOutput' class = 'userOutput row section card-2'>
         <div class = 'scrolldown'><img src = 'icons/more.svg'></div>
         <div class = 'repNumber Acol-4'>1 rep</div><div id = 'max' class = 'repMax Acol-8'></div>
         <div class = 'repNumber Acol-4'>2 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
@@ -60,10 +60,11 @@
         <div class = 'repNumber Acol-4'>19 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
         <div class = 'repNumber Acol-4'>20 reps</div><div id = 'max' class = 'repMax Acol-8'></div>
       </div>
-      <div class = 'error card-5'>Enter weight & reps</div>
     </div>
   </div>
+  <!--================================-->
 
+  <!--========== DAILY EXPENDITURE ==========-->
   <div class = 'feature tdee sCol clickable card-1'>
     <div id = 'tr' class = 'darkOverlay overlayHover'></div>
 
@@ -76,8 +77,33 @@
       <h1>TDEE</h1>
       <span>How many calories you burn in a day</span>
     </div>
-  </div>
 
+    <div class = 'expandedContent'>
+      <h1>Total Daily Expenditure</h1>
+      <div class = 'userInput row section card-2'>
+        <div class = 'Acol-4'>
+          <h2>Height</h2>
+          <div class = 'heightInputWrapper'><input placeholder = 'ft.'></div><div class = 'heightInputWrapper'><input placeholder = 'in.'></div>
+        </div>
+        <div class = 'Acol-4'>
+          <h2>Weight</h2>
+          <input placeholder = 'lbs' class = 'col-12'>
+        </div>
+        <div class = 'Acol-4'>
+          <h2>Age</h2>
+          <input placeholder = 'yrs' class = 'col-12'>
+        </div>
+        <div class = 'calculate card-1'>Calculate</div>
+      </div>
+
+      <div class = 'userOutput row section card-2'>
+        <div class = 'cals Acol-4'>cals</div><div id = 'calsBurnt' class = 'calsBurnt Acol-8'></div>
+      </div>
+    </div>
+  </div>
+  <!--================================-->
+
+  <!--========== LEAN BODY MASS ==========-->
   <div class = 'feature lbm sCol clickable card-1'>
     <div class = 'darkOverlay overlayHover' id = 'bl'></div>
     <div class = 'content'>
@@ -89,8 +115,27 @@
       <h1>Lean&nbspBody&nbspMass</h1>
       <span>Your body weight without all that pesty fat</span>
     </div>
-  </div>
 
+    <div class = 'expandedContent card-3'>
+      <h1>Lean Body Mass</h1>
+      <div class = 'userInput row section card-2'>
+        <div class = 'headerContainer'>
+          <h2>Weight</h2><h2>Bodyfat</h2>
+        </div>
+        <div class = 'inputRow row'>
+          <div class = 'inputWrapper'><input placeholder = 'pounds'></div><div class = 'inputWrapper'><input placeholder = 'percent'></div>
+        </div>
+        <div class = 'calculate card-1'>Calculate</div>
+      </div>
+
+      <div class = 'userOutput row section card-2'>
+        <div class = 'resultsRow'><div class = 'label'>LBM</div><div class = 'output'></div></div>
+      </div>
+    </div>
+  </div>
+  <!--================================-->
+
+  <!--========== TARGET HEART RATE ==========-->
   <div class = 'feature thr sCol clickable card-1'>
     <div id = 'br' class = 'darkOverlay overlayHover'></div>
     <div class = 'content'>
@@ -103,7 +148,7 @@
       <span>A healthy heart rate during exercise</span>
     </div>
   </div>
-
+  <!--================================-->
 </div>
 </body>
 </html>
