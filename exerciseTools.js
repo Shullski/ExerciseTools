@@ -23,6 +23,8 @@ var lastScrollPosition = 0;
 //Tracking which feature is open
 var expandedDiv;
 var prevExpandedDiv;
+var expandedDivID
+var prevExpandedDivID;
 //Coefficients for one rep max
 var maxCoeffecients = [1.0, .943, .906, .881, .856, .831, .807, .786, .765, .744, .723, .703, .688, .675, .662, .650, .638, .627, .616, .606];
 
@@ -154,6 +156,12 @@ function startLoadAnimation() {
     loadTimer = setInterval(loadAnimation, 300);
 }
 
+function getFeatureID(element) {
+  var theID = $(element).attr('id');
+  return theID;
+
+}
+
 $(window).bind("load", function() {
 });
 
@@ -184,10 +192,14 @@ $(document).ready(function(){
   //============== Expanding a feature ================
   $('.feature').click(function(){
     expandedDiv = $(this);
+    expandedDivID = getFeatureID(expandedDiv);
     updateButtonColors(expandedDiv);
+    //Cancel fade in if feature is double clicked
+    if(expandedDivID == prevExpandedDivID) {
+      clearTimeout(fadeinTimer);
+    }
     if(expandedDiv.hasClass('clickable')) {
       //Stop fadein of content if double clicked
-      clearTimeout(fadeinTimer);
       //Put old overlay behind new one if it exists
       if(prevExpandedDiv) prevExpandedDiv.css('z-index', '2');
       //Expand Div
@@ -195,6 +207,11 @@ $(document).ready(function(){
       expandedDiv.find('.content').fadeOut(200);
       expandedDiv.find('.darkOverlay').removeClass('overlayHover');
       expandedDiv.removeClass('clickable');
+      $('.feature').each(function(){
+        if($(this).hasClass('clickable')) {
+          $(this).addClass('notClickable')
+        }
+      });
       //Color exit button
       setTimeout(function(){
         $('.close').css({'height':'45px', 'width':'45px'});
@@ -207,17 +224,25 @@ $(document).ready(function(){
 
   //============== Closing a feature ================
   $('.close').click(function(){
+
     $('.expandedContent').fadeOut(200);
     $('.expandedContent').css('transform', 'translate(50%, 55%)');
     expandedDiv.css({'height': '50%', 'width': '50%'});
     expandedDiv.find('.darkOverlay').addClass('overlayHover');
+    $('.feature').each(function(){
+      if($(this).hasClass('notClickable')) {
+        $(this).removeClass('notClickable')
+      }
+    });
     expandedDiv.addClass('clickable');
     $('.close').css({'height':'0px', 'width': '0px'});
     fadeinTimer = setTimeout(function(){
-      expandedDiv.find('.content').fadeIn(200);
+      prevExpandedDiv.find('.content').fadeIn(200);
     },600);
     //This div is now the previous
     prevExpandedDiv = expandedDiv;
+    prevExpandedDivID = getFeatureID(prevExpandedDiv);
+
   });
 
   //=========== Calculate 1rm and fill chart =========
