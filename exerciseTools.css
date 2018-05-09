@@ -267,6 +267,7 @@ body {
       margin-bottom: 40px;
       position: relative; }
     .container .expandedContent input {
+      font-family: 'proxima-nova', sans-serif;
       text-align: center;
       text-transform: uppercase;
       font-weight: bolder;
