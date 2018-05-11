@@ -13,6 +13,8 @@ $green: #6CAB19;
 $yellow: #CEE24A;
 $blue: #4298f4;
 $blueDark: #3469a3;
+$red: #e04141;
+$greyRed: #992f2f;
 
 /* Responsive Design */
 * {
@@ -207,7 +209,7 @@ body{
     transition: transform 0.5s ease-in-out;
     background-color:rgba(15,15,15,0.9);
     padding-bottom:20px;
-    //border-radius: 10px;
+    overflow:hidden;
 
     h1 {
       color:white;
@@ -290,6 +292,47 @@ body{
       }
     }
   }
+
+  i {
+    color:white;
+    cursor:pointer;
+    user-select: none;
+    transition: 0.2s;
+    &:hover { color: rgb(220,220,220); }
+    &:active { color: rgb(190,190,190); }
+  }
+  .expandedInfo {
+    position:absolute;
+    right:0; bottom:0;
+    height:100%; width:100%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+    padding:20px;
+    z-index:10;
+    overflow-y:scroll;
+    p{
+      font-family: 'proxima-nova', sans-serif;
+      color:rgba(255,255,255,0.8);
+      text-align: left;
+    }
+    li {
+      font-family: 'proxima-nova', sans-serif;
+      color:rgba(255,255,255,0.8);
+      text-align: left;
+    }
+    b { font-family: 'proxima-nova', sans-serif; }
+  }
+  .expandInfo { transform: translateX(0%);}
+
+  .infoIcon {
+    position:absolute;
+    top:20px;
+    right:20px;
+  }
+  .pinkBG {background: linear-gradient(to right, $pink, $orange);}
+  .greenBG {background: linear-gradient(to right, $green, $yellow);}
+  .redBG {background: linear-gradient(to right, $red, $greyRed);}
+  .blueBG {background: linear-gradient(to right, $blue, $blueDark);}
 
   .oneRM {
     background-image:url('textures/wild_oliva.png');

@@ -249,7 +249,8 @@ body {
     display: none;
     transition: transform 0.5s ease-in-out;
     background-color: rgba(15, 15, 15, 0.9);
-    padding-bottom: 20px; }
+    padding-bottom: 20px;
+    overflow: hidden; }
     .container .expandedContent h1 {
       color: white;
       font-family: fresno, sans-serif;
@@ -328,6 +329,50 @@ body {
         .container .expandedContent .userOutput .scrolldown img {
           max-height: 100%;
           max-width: 100%; }
+  .container i {
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.2s; }
+    .container i:hover {
+      color: gainsboro; }
+    .container i:active {
+      color: #bebebe; }
+  .container .expandedInfo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+    padding: 20px;
+    z-index: 10;
+    overflow-y: scroll; }
+    .container .expandedInfo p {
+      font-family: 'proxima-nova', sans-serif;
+      color: rgba(255, 255, 255, 0.8);
+      text-align: left; }
+    .container .expandedInfo li {
+      font-family: 'proxima-nova', sans-serif;
+      color: rgba(255, 255, 255, 0.8);
+      text-align: left; }
+    .container .expandedInfo b {
+      font-family: 'proxima-nova', sans-serif; }
+  .container .expandInfo {
+    transform: translateX(0%); }
+  .container .infoIcon {
+    position: absolute;
+    top: 20px;
+    right: 20px; }
+  .container .pinkBG {
+    background: linear-gradient(to right, #ff7979, #f89654); }
+  .container .greenBG {
+    background: linear-gradient(to right, #6CAB19, #CEE24A); }
+  .container .redBG {
+    background: linear-gradient(to right, #e04141, #992f2f); }
+  .container .blueBG {
+    background: linear-gradient(to right, #4298f4, #3469a3); }
   .container .oneRM {
     background-image: url("textures/wild_oliva.png");
     background-repeat: repeat;

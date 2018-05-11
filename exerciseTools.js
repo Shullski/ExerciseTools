@@ -189,6 +189,9 @@ $(document).ready(function(){
     }, function(){
   });
 
+  $('.infoIcon').click(function(){
+    expandedDiv.find('.expandedInfo').toggleClass('expandInfo');
+  });
   //============== Expanding a feature ================
   $('.feature').click(function(){
     expandedDiv = $(this);
