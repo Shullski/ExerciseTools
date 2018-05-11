@@ -60,6 +60,7 @@ function getBMI(feet, inches, weight) {
   result = result.toFixed(1);
   return result;
 }
+
 function generateOutput(feature){
   var theID = feature.find('.calculate').attr('id');
   var counter = 0;
@@ -86,14 +87,11 @@ function generateOutput(feature){
     BMR = Math.floor(BMR);
     $('#BMRoutput').html(BMR);
 
-
   }else if (theID == 'calculateLBM') {
     var weight = $('#LBMweightInput').val();
     var bodyfat = $('#LBMbodyFatInput').val();
     var LBM = getLBM(weight, bodyfat);
     $('#LBMoutput').find('.output').html(LBM);
-
-
 
   }else if (theID == 'calculateBMI') {
     var feet = $('#BMIfeetInput').val();
@@ -141,7 +139,6 @@ function updateButtonColors(element) {
 function isMobile(width) {
   if(width < mobileBreakpoint) return true;
 }
-
 function isTablet(width) {
   if(width < tabletBreakpoint && width > mobileBreakpoint) return true;
 }
@@ -159,7 +156,6 @@ function startLoadAnimation() {
 function getFeatureID(element) {
   var theID = $(element).attr('id');
   return theID;
-
 }
 
 $(window).bind("load", function() {
@@ -167,12 +163,6 @@ $(window).bind("load", function() {
 
 /*===============*/
 $(document).ready(function(){
-  $(window).on('resize', function(){
-  });
-
-  $(document).scroll(function() {
-    var position = $(this).scrollTop();
-  });
 
   //========Show/hide scroll arrow on 1rm output=======
   $('.userOutput').scroll(function() {
@@ -184,14 +174,11 @@ $(document).ready(function(){
     }
   });
 
-  //=============== HOVER EFFECTS ON FEATURE BUTTONS =============
-  $('#eventButton, #mapButton, #messagingButton, #groupsButton').hover(function() {
-    }, function(){
-  });
-
+  //============== MORE FEATURE INFO ================
   $('.infoIcon').click(function(){
     expandedDiv.find('.expandedInfo').toggleClass('expandInfo');
   });
+
   //============== Expanding a feature ================
   $('.feature').click(function(){
     expandedDiv = $(this);
@@ -215,14 +202,13 @@ $(document).ready(function(){
           $(this).addClass('notClickable')
         }
       });
-      //Color exit button
+      //Fade back in tooltip
       setTimeout(function(){
         $('.close').css({'height':'45px', 'width':'45px'});
         $(expandedDiv).find('.expandedContent').fadeIn(400);
         $(expandedDiv).find('.expandedContent').css('transform', 'translate(50%, 50%)');
       },600);
     }
-
   });
 
   //============== Closing a feature ================
@@ -245,29 +231,11 @@ $(document).ready(function(){
     //This div is now the previous
     prevExpandedDiv = expandedDiv;
     prevExpandedDivID = getFeatureID(prevExpandedDiv);
-
   });
 
   //=========== Calculate 1rm and fill chart =========
   $('.calculate').click(function() {
     generateOutput(expandedDiv);
-
-    // console.log(generateOutput(expandedDiv));
-    // var weight = $('#weight').val();
-    // var reps = $('#reps').val();
-    // if(!(reps && weight)) {
-    //   //$('.error').fadeIn(400);
-    //   expandedDiv.find('input').addClass('calculateError');
-    //   setTimeout(function(){
-    //       expandedDiv.find('input').removeClass('calculateError');
-    //     },3000);
-    // }else {
-    //   var maxes = getRepMaxes(weight, reps);
-    //   $('#oneRepMaxOutput > #max').each(function() {
-    //     $(this).html(maxes[counter]);
-    //     counter++;
-    //   });
-    // }
   });
 
   //===== SMOOTH SCROLLING =====
