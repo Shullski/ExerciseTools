@@ -229,7 +229,7 @@ body {
     transform: scale(0.95); }
   .container .notClickable {
     pointer-events: none;
-    transform: scale(0.85);
+    transform: scale(0.8);
     transition: transform 0.3s ease; }
   .container .mobileExpanded {
     top: 0;
@@ -374,20 +374,24 @@ body {
   .container .blueBG {
     background: linear-gradient(to right, #4298f4, #3469a3); }
   .container .oneRM {
-    background-image: url("textures/wild_oliva.png");
-    background-repeat: repeat;
-    background-size: auto;
     top: 0;
     left: 0;
     /* width */
     /* Track */
     /* Handle */
     /* Handle on hover */ }
-    @media only screen and (min-width: 768px) {
-      .container .oneRM {
-        background-image: url("images/deadlift-min.jpg");
-        background-size: cover;
-        background-repeat: no-repeat; } }
+    .container .oneRM .fixedBackground {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url("textures/wild_oliva.png");
+      background-repeat: repeat; }
+      @media only screen and (min-width: 768px) {
+        .container .oneRM .fixedBackground {
+          background-image: url("images/deadlift-min.jpg");
+          background-size: cover; } }
     .container .oneRM .for {
       color: white;
       text-transform: uppercase;
@@ -421,16 +425,20 @@ body {
     .container .oneRM .userOutput::-webkit-scrollbar-thumb:hover {
       background: #ffaeae; }
   .container .tdee {
-    background-image: url("textures/wild_oliva.png");
-    background-repeat: repeat;
-    background-size: auto;
     top: 0;
     right: 0; }
-    @media only screen and (min-width: 768px) {
-      .container .tdee {
-        background-image: url("images/food-min.jpg");
-        background-size: cover;
-        background-repeat: no-repeat; } }
+    .container .tdee .fixedBackground {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url("textures/wild_oliva.png");
+      background-repeat: repeat; }
+      @media only screen and (min-width: 768px) {
+        .container .tdee .fixedBackground {
+          background-image: url("images/food-min.jpg");
+          background-size: cover; } }
     .container .tdee .userInput {
       padding-bottom: 15px; }
     .container .tdee .userOutput {
@@ -453,16 +461,20 @@ body {
       height: 45px;
       color: white; }
   .container .lbm {
-    background-image: url("textures/wild_oliva.png");
-    background-repeat: repeat;
-    background-size: auto;
     bottom: 0;
     left: 0; }
-    @media only screen and (min-width: 768px) {
-      .container .lbm {
-        background-image: url("images/shredded-min.jpg");
-        background-size: cover;
-        background-repeat: no-repeat; } }
+    .container .lbm .fixedBackground {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url("textures/wild_oliva.png");
+      background-repeat: repeat; }
+      @media only screen and (min-width: 768px) {
+        .container .lbm .fixedBackground {
+          background-image: url("images/shredded-min.jpg");
+          background-size: cover; } }
     .container .lbm .userInput {
       padding-bottom: 25px; }
     .container .lbm .headerContainer {
@@ -502,16 +514,20 @@ body {
       width: 66.7%;
       vertical-align: middle; }
   .container .bmi {
-    background-image: url("textures/wild_oliva.png");
-    background-repeat: repeat;
-    background-size: auto;
     bottom: 0;
     right: 0; }
-    @media only screen and (min-width: 768px) {
-      .container .bmi {
-        background-image: url("images/cardio-min.jpg");
-        background-size: cover;
-        background-repeat: no-repeat; } }
+    .container .bmi .fixedBackground {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url("textures/wild_oliva.png");
+      background-repeat: repeat; }
+      @media only screen and (min-width: 768px) {
+        .container .bmi .fixedBackground {
+          background-image: url("images/cardio-min.jpg");
+          background-size: cover; } }
     .container .bmi .userInput {
       padding-bottom: 25px; }
     .container .bmi .headerContainer {

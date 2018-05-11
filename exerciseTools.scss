@@ -115,7 +115,6 @@ body{
   .feature {
     position:absolute;
     overflow:hidden;
-
     @media only screen and (min-width: 600px) { height: 50%; width:50%; position:absolute; }
     height: 50%; width:50%; position:absolute;
     background-position: center;
@@ -186,7 +185,7 @@ body{
   }
   .notClickable {
     pointer-events: none;
-    transform:scale(0.85);
+    transform:scale(0.8);
     transition: transform 0.3s ease;
   }
 
@@ -335,14 +334,17 @@ body{
   .blueBG {background: linear-gradient(to right, $blue, $blueDark);}
 
   .oneRM {
-    background-image:url('textures/wild_oliva.png');
-    background-repeat: repeat;
-    background-size: auto;
-    top:0; left:0;
-    @media only screen and (min-width: 768px) {
-      background-image:url('images/deadlift-min.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
+    top: 0; left:0;
+    .fixedBackground {
+      position:absolute;
+      top:0;left:0;
+      width:100vw; height:100vh;
+      background-image:url('textures/wild_oliva.png');
+      background-repeat: repeat;
+      @media only screen and (min-width: 768px) {
+        background-image:url('images/deadlift-min.jpg');
+        background-size: cover;
+      }
     }
     .for {
       color: white; text-transform: uppercase; font-size:12px; text-align: center;
@@ -389,15 +391,18 @@ body{
   }
 
   .tdee{
-    background-image:url('textures/wild_oliva.png');
-    background-repeat: repeat;
-    background-size: auto;
-    @media only screen and (min-width: 768px) {
-      background-image:url('images/food-min.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
     top: 0; right:0;
+    .fixedBackground {
+      position:absolute;
+      top:0;right:0;
+      width:100vw; height:100vh;
+      background-image:url('textures/wild_oliva.png');
+      background-repeat: repeat;
+      @media only screen and (min-width: 768px) {
+        background-image:url('images/food-min.jpg');
+        background-size: cover;
+      }
+    }
     .userInput {padding-bottom:15px;}
     .userOutput {padding:0px;}
     .heightInputWrapper {
@@ -424,15 +429,18 @@ body{
   }
 
   .lbm {
-    background-image:url('textures/wild_oliva.png');
-    background-repeat: repeat;
-    background-size: auto;
-    @media only screen and (min-width: 768px) {
-      background-image:url('images/shredded-min.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
     bottom:0; left:0;
+    .fixedBackground {
+      position:absolute;
+      bottom:0; left:0;
+      width:100vw; height:100vh;
+      background-image:url('textures/wild_oliva.png');
+      background-repeat: repeat;
+      @media only screen and (min-width: 768px) {
+        background-image:url('images/shredded-min.jpg');
+        background-size: cover;
+      }
+    }
     .userInput {
       padding-bottom: 25px;
     }
@@ -482,16 +490,18 @@ body{
   }
 
   .bmi {
-    background-image:url('textures/wild_oliva.png');
-    background-repeat: repeat;
-    background-size: auto;
-    bottom:0;
-    @media only screen and (min-width: 768px) {
-      background-image:url('images/cardio-min.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
+    bottom:0; right:0;
+    .fixedBackground {
+      position:absolute;
+      bottom:0; right:0;
+      width:100vw; height:100vh;
+      background-image:url('textures/wild_oliva.png');
+      background-repeat: repeat;
+      @media only screen and (min-width: 768px) {
+        background-image:url('images/cardio-min.jpg');
+        background-size: cover;
+      }
     }
-    right:0;
     .userInput {
       padding-bottom: 25px;
       //border:1px dashed green;
