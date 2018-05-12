@@ -149,7 +149,57 @@ body {
   height: 100vh;
   width: 100vw;
   position: relative;
-  transition: transform 0.3s ease; }
+  transition: transform 0.3s ease;
+  overflow: hidden; }
+  .container .settings {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    padding: 30px 40px 30px 40px;
+    background-color: #5a5a5a;
+    z-index: 10;
+    transform: translate(-50%, 100%);
+    transition: 0.5s ease; }
+    .container .settings .settingsToggle {
+      position: absolute;
+      background-color: inherit;
+      height: 40px;
+      width: 80px;
+      border-radius: 50% 50% 0 0;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      z-index: 1;
+      cursor: pointer; }
+      .container .settings .settingsToggle i {
+        position: absolute;
+        top: 11px;
+        left: 50%;
+        transform: translateX(-50%); }
+    .container .settings input[type="radio"] {
+      display: none; }
+    .container .settings input[type="radio"]:checked + label {
+      background-color: #e04141;
+      color: white; }
+    .container .settings label {
+      padding: 10px;
+      display: block;
+      background-color: #6e6e6e;
+      color: white;
+      letter-spacing: 1px;
+      font-size: 20px;
+      cursor: pointer;
+      width: 150px;
+      text-align: center;
+      transition: 0.2s ease; }
+      .container .settings label:hover {
+        background-color: #828282; }
+    .container .settings .first {
+      margin-bottom: 15px; }
+    .container .settings .second {
+      margin-top: 15px; }
+  .container .toggleSettings {
+    transform: translate(-50%, 0%); }
   .container .feature {
     position: absolute;
     overflow: hidden;

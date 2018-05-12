@@ -174,6 +174,12 @@ $(document).ready(function(){
     }
   });
 
+
+  $('.settingsToggle').click(function(){
+    console.log('here');
+    $('.settings').toggleClass('toggleSettings');
+  });
+
   //============== MORE FEATURE INFO ================
   $('.infoIcon').click(function(){
     expandedDiv.find('.expandedInfo').toggleClass('expandInfo');

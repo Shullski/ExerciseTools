@@ -111,6 +111,59 @@ body{
   width:100vw;
   position:relative;
   transition:transform 0.3s ease;
+  overflow:hidden;
+  //border:4px solid green;
+
+  .settings {
+    position:absolute;
+    bottom:0;
+    left:50%;
+    padding:30px 40px 30px 40px;
+    background-color: rgb(90,90,90);
+    z-index: 10;
+    transform: translate(-50%, 100%);
+    transition: 0.5s ease;
+    .settingsToggle {
+      position:absolute;
+      background-color:inherit;
+      height:40px; width:80px;
+      border-radius: 50% 50% 0 0;
+      top:0;left:50%;
+      transform: translate(-50%, -100%);
+      z-index:1;
+      cursor:pointer;
+      i {
+        position:absolute;
+        top:11px; left:50%;
+        transform: translateX(-50%);
+      }
+    }
+    input[type="radio"] {
+      display: none;
+    }
+    input[type="radio"]:checked + label {
+      background-color:$red;
+      color:white;
+    }
+    label {
+      padding:10px;
+      display:block;
+      background-color:rgb(110,110,110);
+      //margin-bottom:10px;
+      color:white; letter-spacing: 1px;
+      font-size:20px;
+      cursor:pointer;
+      width:150px;
+      text-align:center;
+      &:hover{background-color: rgb(130,130,130);}
+      transition:0.2s ease;
+    }
+    .first {margin-bottom:15px;}
+    .second {margin-top:15px;}
+  }
+  .toggleSettings {
+    transform: translate(-50%, 0%);
+  }
 
   .feature {
     position:absolute;
