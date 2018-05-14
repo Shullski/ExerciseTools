@@ -153,29 +153,33 @@ body {
   overflow: hidden; }
   .container .settings {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 50%;
     padding: 30px 40px 30px 40px;
     background-color: #5a5a5a;
     z-index: 10;
-    transform: translate(-50%, 100%);
+    transform: translate(-50%, -100%);
     transition: 0.5s ease; }
     .container .settings .settingsToggle {
       position: absolute;
       background-color: inherit;
       height: 40px;
       width: 80px;
-      border-radius: 50% 50% 0 0;
-      top: 0;
+      border-radius: 0 0 50% 50%;
+      z-index: 9;
+      bottom: 0;
       left: 50%;
-      transform: translate(-50%, -100%);
-      z-index: 1;
-      cursor: pointer; }
+      transform: translate(-50%, 100%);
+      cursor: pointer;
+      transition: 0.2s ease; }
+      .container .settings .settingsToggle:hover {
+        background-color: #6e6e6e; }
       .container .settings .settingsToggle i {
         position: absolute;
-        top: 11px;
+        pointer-events: none;
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%); }
+        transform: translate(-50%, -50%); }
     .container .settings input[type="radio"] {
       display: none; }
     .container .settings input[type="radio"]:checked + label {
@@ -600,8 +604,7 @@ body {
       padding: 5px; }
     .container .bmi input {
       height: 35px;
-      width: 100%;
-      vertical-align: middle; }
+      width: 100%; }
     .container .bmi .userOutput {
       padding: 5px; }
     .container .bmi .resultsRow {

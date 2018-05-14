@@ -116,26 +116,29 @@ body{
 
   .settings {
     position:absolute;
-    bottom:0;
+    top:0;
     left:50%;
     padding:30px 40px 30px 40px;
     background-color: rgb(90,90,90);
     z-index: 10;
-    transform: translate(-50%, 100%);
+    transform: translate(-50%, -100%);
     transition: 0.5s ease;
     .settingsToggle {
       position:absolute;
       background-color:inherit;
       height:40px; width:80px;
-      border-radius: 50% 50% 0 0;
-      top:0;left:50%;
-      transform: translate(-50%, -100%);
-      z-index:1;
+      border-radius: 0 0 50% 50%;
+      z-index:9;
+      bottom:0;left:50%;
+      transform: translate(-50%, 100%);
       cursor:pointer;
+      transition:0.2s ease;
+      &:hover {background-color: rgb(110,110,110); }
       i {
         position:absolute;
-        top:11px; left:50%;
-        transform: translateX(-50%);
+        pointer-events: none;
+        top:50%; left:50%;
+        transform: translate(-50%, -50%);
       }
     }
     input[type="radio"] {
@@ -149,14 +152,13 @@ body{
       padding:10px;
       display:block;
       background-color:rgb(110,110,110);
-      //margin-bottom:10px;
       color:white; letter-spacing: 1px;
       font-size:20px;
       cursor:pointer;
       width:150px;
       text-align:center;
-      &:hover{background-color: rgb(130,130,130);}
       transition:0.2s ease;
+      &:hover{background-color: rgb(130,130,130);}
     }
     .first {margin-bottom:15px;}
     .second {margin-top:15px;}
@@ -588,7 +590,6 @@ body{
     input{
       height:35px;
       width:100%;
-      vertical-align: middle;
     }
     .userOutput{padding:5px;}
     .resultsRow {

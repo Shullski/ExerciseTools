@@ -176,8 +176,9 @@ $(document).ready(function(){
 
 
   $('.settingsToggle').click(function(){
-    console.log('here');
     $('.settings').toggleClass('toggleSettings');
+    $('.settings').toggleClass('card-4');
+
   });
 
   //============== MORE FEATURE INFO ================
