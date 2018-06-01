@@ -91,7 +91,7 @@ function generateOutput(feature){
     var weight = $('#LBMweightInput').val();
     var bodyfat = $('#LBMbodyFatInput').val();
     var LBM = getLBM(weight, bodyfat);
-    $('#LBMoutput').find('.output').html(LBM);
+    $('#LBMoutput').find('.outputResults').html(LBM);
 
   }else if (theID == 'calculateBMI') {
     var feet = $('#BMIfeetInput').val();
@@ -165,7 +165,7 @@ $(window).bind("load", function() {
 $(document).ready(function(){
 
   //========Show/hide scroll arrow on 1rm output=======
-  $('.userOutput').scroll(function() {
+  $('#oneRepMaxOutput').scroll(function() {
     var outputPosition = $(this).scrollTop();
     if(outputPosition > 40 ) {
       $(this).find('.scrolldown').fadeOut('fast')
